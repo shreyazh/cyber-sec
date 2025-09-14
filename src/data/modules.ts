@@ -126,7 +126,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'social-engineering',
     title: 'HUMAN VULNERABILITY ANALYSIS',
     description: 'Understand and defend against social engineering attacks that target human psychology.',
-    difficulty: 'AGENT',
+    difficulty: 'ROOKIE',
     category: 'BEHAVIORAL SECURITY',
     isLocked: false,
     requiredLevel: 2,
@@ -186,7 +186,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'malware-analysis',
     title: 'MALWARE IDENTIFICATION PROTOCOL',
     description: 'Learn to identify, analyze, and defend against various types of malicious software.',
-    difficulty: 'AGENT',
+    difficulty: 'ROOKIE',
     category: 'THREAT ANALYSIS',
     isLocked: false,
     requiredLevel: 3,
@@ -246,7 +246,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'network-security',
     title: 'NETWORK FORTRESS PROTOCOLS',
     description: 'Advanced network security concepts including firewalls, VPNs, and intrusion detection.',
-    difficulty: 'ELITE',
+    difficulty: 'ROOKIE',
     category: 'INFRASTRUCTURE',
     isLocked: false,
     requiredLevel: 5,
@@ -307,7 +307,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'cloud-security',
     title: 'CLOUD SHIELD FRAMEWORK',
     description: 'Protect workloads, applications, and data in cloud environments.',
-    difficulty: 'AGENT',
+    difficulty: 'ROOKIE',
     category: 'CLOUD',
     isLocked: false,
     requiredLevel: 4,
@@ -331,7 +331,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'incident-response',
     title: 'CYBER INCIDENT RESPONSE BLUEPRINT',
     description: 'Steps and strategies for responding to cybersecurity incidents effectively.',
-    difficulty: 'AGENT',
+    difficulty: 'ROOKIE',
     category: 'OPERATIONS',
     isLocked: false,
     requiredLevel: 3,
@@ -379,7 +379,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'web-app-security',
     title: 'WEB APPLICATION ARMOR',
     description: 'Learn about securing web apps against OWASP Top 10 threats.',
-    difficulty: 'AGENT',
+    difficulty: 'ROOKIE',
     category: 'APPLICATION SECURITY',
     isLocked: false,
     requiredLevel: 4,
@@ -451,7 +451,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'mobile-security',
     title: 'MOBILE SECURITY PROTOCOLS',
     description: 'Defend smartphones and tablets against malware, theft, and data leakage.',
-    difficulty: 'ROOKIE',
+    difficulty: 'AGENT',
     category: 'DEVICE SECURITY',
     isLocked: false,
     requiredLevel: 2,
@@ -499,7 +499,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'forensics',
     title: 'DIGITAL FORENSICS BLUEPRINT',
     description: 'Learn how to investigate, analyze, and preserve digital evidence.',
-    difficulty: 'ELITE',
+    difficulty: 'AGENT',
     category: 'INVESTIGATION',
     isLocked: false,
     requiredLevel: 5,
@@ -523,7 +523,7 @@ export const learningModules: LearningModuleData[] = [
     id: 'threat-hunting',
     title: 'THREAT HUNTING OPERATIONS',
     description: 'Proactively search for threats in networks and systems before damage occurs.',
-    difficulty: 'ELITE',
+    difficulty: 'AGENT',
     category: 'OPERATIONS',
     isLocked: false,
     requiredLevel: 5,
@@ -541,5 +541,635 @@ export const learningModules: LearningModuleData[] = [
       { id: 'q5', question: 'IOC stands for:', options: ['Indicators of Compromise','Internal Office Controls','Identity of Computers','Independent Operating Code'], correctAnswer: 0, explanation: 'IOCs are clues of compromise.', points: 250 }
     ],
     maxScore: 1050
-  }
+  },
+  // ------------------- Module 16 -------------------
+{
+  id: 'red-team-strategy',
+  title: 'ADVANCED RED TEAM STRATEGY',
+  description: 'Develop elite offensive simulation skills to test organizational defenses.',
+  difficulty: 'AGENT',
+  category: 'OPERATIONS',
+  isLocked: false,
+  requiredLevel: 16,
+  videoUrl: 'https://www.youtube.com/embed/Zl9ihI4P6cA',
+  articleLinks: [
+    { title: 'Red Teaming Explained', url: 'https://www.csoonline.com/article/3331981/what-is-red-teaming.html' },
+    { title: 'Purple Teaming Guide', url: 'https://attack.mitre.org/resources/purple-teaming/' },
+    { title: 'Advanced Adversary Simulation', url: 'https://www.sans.org/blog/red-team-vs-penetration-testing/' },
+    { title: 'TTP Mapping Techniques', url: 'https://attack.mitre.org/matrices/enterprise/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Red teaming differs from pentesting because:', options: ['It’s shorter','Focuses on compliance','Simulates real adversaries','Uses no tools'], correctAnswer: 2, explanation: 'Red teams mimic adversary TTPs to stress-test defenses.', points: 250 },
+    { id: 'q2', question: 'Purple teaming integrates:', options: ['Attack + Defense teams','Cloud + On-prem systems','Users + IT','AI + Blockchain'], correctAnswer: 0, explanation: 'Purple teams combine red and blue team collaboration.', points: 250 },
+    { id: 'q3', question: 'A primary objective of red team operations is:', options: ['Find vulnerabilities only','Bypass defenses and achieve objectives','Test antivirus software','Train developers'], correctAnswer: 1, explanation: 'It’s about demonstrating impact through realistic simulation.', points: 250 },
+    { id: 'q4', question: 'Adversary emulation plans are based on:', options: ['Random exploits','MITRE ATT&CK TTPs','Firewall configs','User surveys'], correctAnswer: 1, explanation: 'ATT&CK provides structured techniques for emulation.', points: 250 },
+    { id: 'q5', question: 'Command and Control (C2) in red teaming is:', options: ['Reporting chain','Tool to control compromised hosts','Phishing campaign','Risk register'], correctAnswer: 1, explanation: 'C2 frameworks simulate adversary persistence.', points: 250 },
+    { id: 'q6', question: 'Key challenge in red teaming vs pentesting is:', options: ['Longer engagement & stealth','Cheaper tools','More scanning','Less scope'], correctAnswer: 0, explanation: 'Red teams focus on stealth and extended objectives.', points: 250 },
+    { id: 'q7', question: 'The success of red team operations is best measured by:', options: ['# of vulnerabilities found','# of users trained','Impact on detection & response','Size of report'], correctAnswer: 2, explanation: 'Goal is to improve detection and response capabilities.', points: 300 }
+  ],
+  maxScore: 1850
+},
+
+// ------------------- Module 17 -------------------
+{
+  id: 'cloud-native-security',
+  title: 'CLOUD-NATIVE SECURITY OPERATIONS',
+  description: 'Protect modern containerized and serverless workloads in multi-cloud environments.',
+  difficulty: 'AGENT',
+  category: 'CLOUD',
+  isLocked: false,
+  requiredLevel: 17,
+  videoUrl: 'https://www.youtube.com/embed/7y7M5hG3G7Q',
+  articleLinks: [
+    { title: 'Cloud-Native Security Guide', url: 'https://kubernetes.io/docs/concepts/security/' },
+    { title: 'CNCF Security Whitepaper', url: 'https://github.com/cncf/tag-security' },
+    { title: 'Serverless Security Deep Dive', url: 'https://owasp.org/www-project-serverless-top-10/' },
+    { title: 'Multi-Cloud Risk Management', url: 'https://cloudsecurityalliance.org/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Which is unique to cloud-native security?', options: ['Patch servers','Protecting containers and serverless functions','Antivirus updates','Building firewalls'], correctAnswer: 1, explanation: 'Focus is on ephemeral workloads like containers and functions.', points: 250 },
+    { id: 'q2', question: 'Kubernetes RBAC controls:', options: ['API access & permissions','Physical servers','Firewall rules','CI/CD pipelines'], correctAnswer: 0, explanation: 'RBAC defines user & service account permissions.', points: 250 },
+    { id: 'q3', question: 'Sidecar containers in service mesh help with:', options: ['Scaling apps','Network security enforcement','Backup data','Logging only'], correctAnswer: 1, explanation: 'Sidecars can enforce encryption, monitoring, and policies.', points: 250 },
+    { id: 'q4', question: 'Serverless applications are vulnerable due to:', options: ['Always running servers','Event-driven execution & hidden attack surface','More admins needed','Lack of users'], correctAnswer: 1, explanation: 'Event-driven triggers can be abused if misconfigured.', points: 250 },
+    { id: 'q5', question: 'Best way to secure multi-cloud deployments:', options: ['Rely on one vendor','Centralized IAM and unified monitoring','Ignore vendor policies','Use multiple antivirus'], correctAnswer: 1, explanation: 'Centralized IAM & monitoring mitigate fragmented risks.', points: 250 },
+    { id: 'q6', question: 'Container escape refers to:', options: ['App scaling','Attacker breaking isolation to host','Upgrading images','Patch automation'], correctAnswer: 1, explanation: 'Escape breaks container isolation and compromises host.', points: 250 },
+    { id: 'q7', question: 'Which standard focuses on cloud security?', options: ['NIST 800-53','CSA CCM','PCI DSS','ISO 27017'], correctAnswer: 1, explanation: 'Cloud Security Alliance’s CCM is cloud-specific.', points: 300 }
+  ],
+  maxScore: 1850
+},
+
+// ------------------- Module 18 -------------------
+{
+  id: 'ai-driven-cyber-defense',
+  title: 'AI-DRIVEN CYBER DEFENSE',
+  description: 'Leverage machine learning for automated detection and adaptive defense strategies.',
+  difficulty: 'AGENT',
+  category: 'AI SECURITY',
+  isLocked: false,
+  requiredLevel: 18,
+  videoUrl: 'https://www.youtube.com/embed/rbE8t6so4EY',
+  articleLinks: [
+    { title: 'AI in Cybersecurity', url: 'https://www.ibm.com/security/artificial-intelligence' },
+    { title: 'Adversarial ML Attacks', url: 'https://arxiv.org/abs/1810.00069' },
+    { title: 'Deep Learning for IDS', url: 'https://www.sciencedirect.com/science/article/pii/S0167404820303139' },
+    { title: 'AI Threat Detection Challenges', url: 'https://oecd.ai/en/catalogue/tools/ai-cybersecurity' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Adversarial ML attacks target:', options: ['Model vulnerabilities','Data backups','Physical devices','None'], correctAnswer: 0, explanation: 'They manipulate input data to mislead ML models.', points: 250 },
+    { id: 'q2', question: 'Anomaly detection models in cyber defense detect:', options: ['Normal traffic','Deviations from baseline','Data compression','VPN usage'], correctAnswer: 1, explanation: 'They highlight abnormal activity patterns.', points: 250 },
+    { id: 'q3', question: 'A key limitation of AI-driven cyber defense:', options: ['Too many manual tasks','Bias & adversarial evasion','Inability to scale','No automation'], correctAnswer: 1, explanation: 'AI can be poisoned or tricked by adversaries.', points: 250 },
+    { id: 'q4', question: 'Reinforcement learning can be used to:', options: ['Automate patching','Optimize defense decisions','Manage servers','Train employees'], correctAnswer: 1, explanation: 'RL adapts strategies based on outcomes.', points: 250 },
+    { id: 'q5', question: 'Feature engineering is crucial in:', options: ['ML-based intrusion detection','Password resets','Backup policies','Cloud billing'], correctAnswer: 0, explanation: 'Good features improve detection accuracy.', points: 250 },
+    { id: 'q6', question: 'Generative AI poses cyber risks by:', options: ['Enhancing docs','Creating phishing & deepfakes','Blocking malware','Encrypting storage'], correctAnswer: 1, explanation: 'Attackers weaponize AI for social engineering.', points: 250 },
+    { id: 'q7', question: 'Zero-day malware detection benefits from:', options: ['Static signatures','Behavioral ML models','Firewall logs only','No training data'], correctAnswer: 1, explanation: 'ML can detect novel behaviors unlike signature AV.', points: 300 }
+  ],
+  maxScore: 1850
+},
+// ------------------- Module 19 -------------------
+{
+  id: 'digital-forensics',
+  title: 'DIGITAL FORENSICS MASTERY',
+  description: 'Perform deep forensic investigations across endpoints, memory, and networks.',
+  difficulty: 'AGENT',
+  category: 'FORENSICS',
+  isLocked: false,
+  requiredLevel: 19,
+  videoUrl: 'https://www.youtube.com/embed/L9__1t3qzV8',
+  articleLinks: [
+    { title: 'Intro to Digital Forensics', url: 'https://www.sans.org/cyber-security-courses/forensics-incident-response/' },
+    { title: 'Memory Forensics Guide', url: 'https://volatilityfoundation.org/' },
+    { title: 'Network Forensics Basics', url: 'https://www.geeksforgeeks.org/what-is-network-forensics/' },
+    { title: 'Chain of Custody in Forensics', url: 'https://csrc.nist.gov/publications/detail/sp/800-101/rev-1/final' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Volatility is used for:', options: ['Disk encryption','Memory forensics','Firewall rules','Antivirus updates'], correctAnswer: 1, explanation: 'It specializes in memory analysis.', points: 250 },
+    { id: 'q2', question: 'Chain of custody ensures:', options: ['Evidence authenticity','Faster analysis','Encryption keys','Incident reports'], correctAnswer: 0, explanation: 'Maintains legal integrity of evidence.', points: 250 },
+    { id: 'q3', question: 'File carving in forensics means:', options: ['Shredding files','Recovering deleted fragments','Encrypting storage','Splitting archives'], correctAnswer: 1, explanation: 'It reconstructs files from raw data.', points: 250 },
+    { id: 'q4', question: 'First step in incident forensics is:', options: ['Isolate and preserve evidence','Run antivirus','Erase logs','Patch system'], correctAnswer: 0, explanation: 'Preservation is key to unbiased analysis.', points: 250 },
+    { id: 'q5', question: 'Network forensics often uses:', options: ['pcap analysis','Database dumps','Password resets','NAT configs'], correctAnswer: 0, explanation: 'Packet capture analysis reveals intrusions.', points: 250 },
+    { id: 'q6', question: 'Steganography detection falls under:', options: ['Disk forensics','File analysis','Hidden data discovery','None'], correctAnswer: 2, explanation: 'Steganography hides data in files like images.', points: 250 },
+    { id: 'q7', question: 'Hashing in forensics is used to:', options: ['Encrypt logs','Verify file integrity','Accelerate storage','Create backups'], correctAnswer: 1, explanation: 'Hashes prove evidence integrity.', points: 300 }
+  ],
+  maxScore: 1850
+},
+
+// ------------------- Module 20 -------------------
+{
+  id: 'ics-scada-security',
+  title: 'ICS/SCADA SYSTEM SECURITY',
+  description: 'Safeguard industrial control systems and critical infrastructure.',
+  difficulty: 'AGENT',
+  category: 'CRITICAL INFRASTRUCTURE',
+  isLocked: false,
+  requiredLevel: 20,
+  videoUrl: 'https://www.youtube.com/embed/AXQ1YNyL3-o',
+  articleLinks: [
+    { title: 'What is SCADA Security?', url: 'https://www.cisa.gov/topics/industrial-control-systems' },
+    { title: 'Stuxnet Case Study', url: 'https://www.wired.com/2014/11/countdown-to-zero-day-stuxnet/' },
+    { title: 'OT vs IT Security', url: 'https://www.sans.org/posters/ot-security-fundamentals/' },
+    { title: 'ICS Security Standards', url: 'https://www.isa.org/isa99/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Stuxnet targeted:', options: ['Banking apps','Nuclear centrifuges','Mobile phones','Social media'], correctAnswer: 1, explanation: 'It attacked Iranian nuclear ICS systems.', points: 250 },
+    { id: 'q2', question: 'ICS stands for:', options: ['Internet Control System','Industrial Control System','Infrastructure Cloud Security','Integrated Communication Service'], correctAnswer: 1, explanation: 'ICS are industrial automation systems.', points: 250 },
+    { id: 'q3', question: 'Main difference OT vs IT:', options: ['OT prioritizes safety & uptime, IT prioritizes data','OT is faster','IT has more firewalls','OT has no users'], correctAnswer: 0, explanation: 'ICS prioritize availability and safety.', points: 250 },
+    { id: 'q4', question: 'A common ICS protocol is:', options: ['Modbus','SMTP','HTTP','FTP'], correctAnswer: 0, explanation: 'Modbus is widely used in ICS environments.', points: 250 },
+    { id: 'q5', question: 'SCADA is best described as:', options: ['Supervisory control & data acquisition','Security control and defense','Server cluster admin device','Simple coding and design app'], correctAnswer: 0, explanation: 'It is a control system architecture for processes.', points: 250 },
+    { id: 'q6', question: 'Why is patching hard in ICS?', options: ['Air-gapped systems, uptime critical','Too many users','No logs','Encryption conflicts'], correctAnswer: 0, explanation: 'Critical systems can’t afford downtime.', points: 250 },
+    { id: 'q7', question: 'Best defense for ICS is:', options: ['Default passwords','Layered defense + segmentation','No monitoring','Cloud migration'], correctAnswer: 1, explanation: 'Defense-in-depth protects ICS from diverse threats.', points: 300 }
+  ],
+  maxScore: 1850
+},
+
+// ------------------- Module 21 -------------------
+{
+  id: 'quantum-safe-crypto',
+  title: 'QUANTUM-SAFE CRYPTOGRAPHY',
+  description: 'Prepare for post-quantum security with resilient cryptographic methods.',
+  difficulty: 'AGENT',
+  category: 'CRYPTOGRAPHY',
+  isLocked: false,
+  requiredLevel: 21,
+  videoUrl: 'https://www.youtube.com/embed/j7p8t2yLz2s',
+  articleLinks: [
+    { title: 'Intro to Post-Quantum Crypto', url: 'https://csrc.nist.gov/projects/post-quantum-cryptography' },
+    { title: 'Lattice-Based Crypto', url: 'https://eprint.iacr.org/2018/939.pdf' },
+    { title: 'Quantum Threat to RSA', url: 'https://www.ibm.com/quantum/post-quantum/' },
+    { title: 'NIST PQC Competition', url: 'https://csrc.nist.gov/Projects/post-quantum-cryptography/round-3-submissions' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Shor’s algorithm threatens:', options: ['AES','RSA & ECC','SHA hashing','TLS handshakes only'], correctAnswer: 1, explanation: 'Shor efficiently factors RSA and breaks ECC.', points: 250 },
+    { id: 'q2', question: 'Lattice-based crypto is:', options: ['Quantum algorithm','PQC candidate','Weak symmetric cipher','Hashing scheme'], correctAnswer: 1, explanation: 'It’s a leading PQC approach.', points: 250 },
+    { id: 'q3', question: 'Quantum-safe crypto refers to:', options: ['Classical cryptography','Schemes resistant to quantum attacks','Faster symmetric keys','Cloud security'], correctAnswer: 1, explanation: 'It is about resilience to quantum threats.', points: 250 },
+    { id: 'q4', question: 'Grover’s algorithm affects:', options: ['Symmetric key strength','File carving','Hash verification','Patching speed'], correctAnswer: 0, explanation: 'It weakens symmetric encryption by √N factor.', points: 250 },
+    { id: 'q5', question: 'Hybrid cryptography means:', options: ['Mixing PQC + classical crypto','Encrypting twice','Blockchain-based encryption','Symmetric-only systems'], correctAnswer: 0, explanation: 'Combines PQC with current standards.', points: 250 },
+    { id: 'q6', question: 'Hash-based signatures like XMSS are:', options: ['Broken by quantum','Quantum-safe','For streaming only','For WiFi only'], correctAnswer: 1, explanation: 'They rely on hash functions, considered quantum-resistant.', points: 250 },
+    { id: 'q7', question: 'Biggest challenge in PQC adoption is:', options: ['Slow algorithms','Migration & interoperability','Too simple','No vendors'], correctAnswer: 1, explanation: 'Transitioning globally is complex.', points: 300 }
+  ],
+  maxScore: 1850
+},
+
+// ------------------- Module 22 -------------------
+{
+  id: 'zero-trust-architecture',
+  title: 'ZERO TRUST ARCHITECTURE',
+  description: 'Eliminate implicit trust through continuous verification and least privilege.',
+  difficulty: 'AGENT',
+  category: 'ACCESS CONTROL',
+  isLocked: false,
+  requiredLevel: 22,
+  videoUrl: 'https://www.youtube.com/embed/7VxC35J9QxM',
+  articleLinks: [
+    { title: 'Zero Trust Explained', url: 'https://www.nist.gov/publications/zero-trust-architecture' },
+    { title: 'Google BeyondCorp Model', url: 'https://cloud.google.com/beyondcorp' },
+    { title: 'Identity as the New Perimeter', url: 'https://www.microsoft.com/security/blog/zero-trust/' },
+    { title: 'ZTNA vs VPN', url: 'https://www.zscaler.com/resources/security-terms-glossary/what-is-zero-trust' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Zero trust means:', options: ['Trust everyone','Never trust, always verify','Trust devices only','No authentication'], correctAnswer: 1, explanation: 'Every request is verified explicitly.', points: 250 },
+    { id: 'q2', question: 'BeyondCorp pioneered:', options: ['Network segmentation','Perimeter-less zero trust','Cloud backups','Antivirus automation'], correctAnswer: 1, explanation: 'Google’s model inspired ZTA adoption.', points: 250 },
+    { id: 'q3', question: 'Key enabler of zero trust is:', options: ['IAM & continuous authentication','Bigger firewalls','Single VLAN','Default passwords'], correctAnswer: 0, explanation: 'Identity and context-based access are central.', points: 250 },
+    { id: 'q4', question: 'ZTNA is:', options: ['Zero Trust Network Access','Zero-Time Network Alerts','Zero Trust Node Authentication','Zone Transfer Network App'], correctAnswer: 0, explanation: 'ZTNA implements zero trust access policies.', points: 250 },
+    { id: 'q5', question: 'Zero trust replaces:', options: ['Flat perimeter security','Encryption','DNS','Cloud firewalls'], correctAnswer: 0, explanation: 'It eliminates implicit trust perimeters.', points: 250 },
+    { id: 'q6', question: 'Continuous verification means:', options: ['One login per day','Dynamic, ongoing checks','Weekly audits','No MFA'], correctAnswer: 1, explanation: 'Access is continuously validated.', points: 250 },
+    { id: 'q7', question: 'Least privilege principle ensures:', options: ['Everyone admin','Only necessary access granted','Max rights for speed','Unlimited cloud usage'], correctAnswer: 1, explanation: 'Users/apps get only the access needed.', points: 300 }
+  ],
+  maxScore: 1850
+},
+// ------------------- Module 23 -------------------
+{
+  id: 'supply-chain-security',
+  title: 'SUPPLY CHAIN SECURITY',
+  description: 'Defend against attacks targeting vendors, third-party software, and dependencies.',
+  difficulty: 'AGENT',
+  category: 'SECURITY OPERATIONS',
+  isLocked: false,
+  requiredLevel: 8,
+  videoUrl: 'https://www.youtube.com/embed/5g8rGmD_WFk',
+  articleLinks: [
+    { title: 'Understanding Software Supply Chain Attacks', url: 'https://www.cisa.gov/supply-chain-attacks' },
+    { title: 'SolarWinds Breach Analysis', url: 'https://www.crowdstrike.com/blog/sunburst-supply-chain-attack/' },
+    { title: 'NIST Guidance on Supply Chain Risk', url: 'https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final' },
+    { title: 'Securing Open Source Dependencies', url: 'https://snyk.io/learn/supply-chain-security/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'The SolarWinds attack was an example of:', options: ['Insider threat','Supply chain compromise','Phishing','Ransomware'], correctAnswer: 1, explanation: 'Malicious code was injected into software updates.', points: 300 },
+    { id: 'q2', question: 'NIST SP 800-161 focuses on:', options: ['IoT standards','Supply chain risk management','Network segmentation','Cloud backup'], correctAnswer: 1, explanation: 'It provides guidance for supply chain security.', points: 300 },
+    { id: 'q3', question: 'Dependency confusion attacks exploit:', options: ['DNS','Public package repositories','Firewalls','TLS certificates'], correctAnswer: 1, explanation: 'They trick systems into installing malicious packages.', points: 300 },
+    { id: 'q4', question: 'Best defense against dependency risk is:', options: ['Manual coding','SBOM (Software Bill of Materials)','VPN','DMZ'], correctAnswer: 1, explanation: 'SBOM gives visibility into dependencies.', points: 300 },
+    { id: 'q5', question: 'Third-party vendor compromise is a:', options: ['Direct attack','Indirect supply chain threat','Phishing','Credential stuffing'], correctAnswer: 1, explanation: 'Attackers exploit trusted external vendors.', points: 300 },
+    { id: 'q6', question: 'Tampering during CI/CD pipelines is a:', options: ['Runtime attack','Build pipeline compromise','Physical attack','SQL injection'], correctAnswer: 1, explanation: 'Pipeline compromise can poison software artifacts.', points: 350 },
+    { id: 'q7', question: 'Which tool detects dependency risks?', options: ['Burp Suite','Snyk','Wireshark','Metasploit'], correctAnswer: 1, explanation: 'Snyk helps scan for vulnerable packages.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 24 -------------------
+{
+  id: 'cyber-deception',
+  title: 'CYBER DECEPTION STRATEGIES',
+  description: 'Use decoys, traps, and honeypots to mislead attackers and gather intelligence.',
+  difficulty: 'ELITE',
+  category: 'DEFENSIVE OPERATIONS',
+  isLocked: false,
+  requiredLevel: 9,
+  videoUrl: 'https://www.youtube.com/embed/1H0_rJ9LmJw',
+  articleLinks: [
+    { title: 'Deception Technology Overview', url: 'https://www.gartner.com/en/documents/3884757' },
+    { title: 'Honeypots in Cybersecurity', url: 'https://www.sans.org/white-papers/370/' },
+    { title: 'MITRE Engage Deception Framework', url: 'https://engage.mitre.org/' },
+    { title: 'Using Deception for Proactive Defense', url: 'https://www.darkreading.com/endpoint/deception-technology' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Cyber deception focuses on:', options: ['Blocking ports','Misleading attackers','Data encryption','Password resets'], correctAnswer: 1, explanation: 'It manipulates adversary behavior.', points: 300 },
+    { id: 'q2', question: 'A honeypot is used for:', options: ['Data backup','Luring attackers','Authentication','Firewall bypass'], correctAnswer: 1, explanation: 'Honeypots simulate vulnerable systems.', points: 300 },
+    { id: 'q3', question: 'MITRE Engage provides:', options: ['Deception playbooks','Malware signatures','Network configs','IDS alerts'], correctAnswer: 0, explanation: 'It’s a framework for deception planning.', points: 300 },
+    { id: 'q4', question: 'Credential honeytokens are:', options: ['Fake accounts','Fake patches','Real exploits','API keys'], correctAnswer: 0, explanation: 'Honeytokens are fake credentials to track usage.', points: 300 },
+    { id: 'q5', question: 'Low-interaction honeypots simulate:', options: ['Entire OS','Basic services','Full enterprise network','ICS/SCADA'], correctAnswer: 1, explanation: 'They mimic only limited functionality.', points: 300 },
+    { id: 'q6', question: 'Which deception tool exists?', options: ['Canarytokens','Wireshark','Hashcat','ZAP'], correctAnswer: 0, explanation: 'Canarytokens provide deceptive assets.', points: 350 },
+    { id: 'q7', question: 'Key risk of deception is:', options: ['Legal liability','Overhead','Credential loss','Bypassing AV'], correctAnswer: 0, explanation: 'Tricking attackers can have legal implications.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 25 -------------------
+{
+  id: 'advanced-malware-re',
+  title: 'ADVANCED MALWARE REVERSE ENGINEERING',
+  description: 'Deep dive into dissecting malware with assembly, sandboxes, and emulators.',
+  difficulty: 'ELITE',
+  category: 'MALWARE ANALYSIS',
+  isLocked: false,
+  requiredLevel: 10,
+  videoUrl: 'https://www.youtube.com/embed/YJ5pC5XJStQ',
+  articleLinks: [
+    { title: 'Malware RE Basics', url: 'https://malwareunicorn.org/workshops/re101.html' },
+    { title: 'IDA Pro vs Ghidra', url: 'https://ghidra-sre.org/' },
+    { title: 'Analyzing Packed Malware', url: 'https://www.fireeye.com/current-threats/packed-malware.html' },
+    { title: 'Sandbox Evasion Techniques', url: 'https://attack.mitre.org/techniques/T1497/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Ghidra is:', options: ['A Linux distro','A reverse engineering suite','A honeypot','AV software'], correctAnswer: 1, explanation: 'NSA’s open-source RE framework.', points: 300 },
+    { id: 'q2', question: 'Packed malware is:', options: ['Encrypted','Compressed/obfuscated','Self-replicating','Hardware bound'], correctAnswer: 1, explanation: 'Packing hides real code.', points: 300 },
+    { id: 'q3', question: 'Dynamic analysis involves:', options: ['Running malware in sandbox','Studying disassembly only','Hash comparison','Binary signing'], correctAnswer: 0, explanation: 'It executes malware in controlled envs.', points: 300 },
+    { id: 'q4', question: 'Anti-debugging is:', options: ['Blocking IDS','Detecting analyst tools','Evading honeypots','Encrypting payload'], correctAnswer: 1, explanation: 'Malware checks if being debugged.', points: 300 },
+    { id: 'q5', question: 'Unpacking often requires:', options: ['Disassemblers','Keyloggers','Credential theft','Firewalls'], correctAnswer: 0, explanation: 'Disassemblers help recover original code.', points: 300 },
+    { id: 'q6', question: 'API call tracing reveals:', options: ['Execution behavior','File size','Entropy','IP address only'], correctAnswer: 0, explanation: 'API calls show malware actions.', points: 350 },
+    { id: 'q7', question: 'Which file format is common in malware?', options: ['.ELF','.PE','.MP3','.JPEG'], correctAnswer: 1, explanation: 'Windows malware often uses Portable Executable.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 26 -------------------
+{
+  id: 'privacy-enhancing-tech',
+  title: 'PRIVACY ENHANCING TECHNOLOGIES',
+  description: 'Leverage PETs like differential privacy, homomorphic encryption, and secure multiparty computation.',
+  difficulty: 'ELITE',
+  category: 'PRIVACY',
+  isLocked: false,
+  requiredLevel: 10,
+  videoUrl: 'https://www.youtube.com/embed/2z1cKnzmL5A',
+  articleLinks: [
+    { title: 'Differential Privacy Basics', url: 'https://privacytools.seas.harvard.edu/differential-privacy' },
+    { title: 'Homomorphic Encryption Overview', url: 'https://www.microsoft.com/en-us/research/project/homomorphic-encryption/' },
+    { title: 'Secure Multiparty Computation', url: 'https://eprint.iacr.org/2018/403.pdf' },
+    { title: 'Privacy Preserving AI', url: 'https://fpf.org/blog/privacy-enhancing-technologies/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Differential privacy ensures:', options: ['Zero leaks','Statistical protection of individuals','Perfect anonymity','Full encryption'], correctAnswer: 1, explanation: 'It guarantees privacy in aggregated data.', points: 300 },
+    { id: 'q2', question: 'Homomorphic encryption allows:', options: ['Computations on encrypted data','Faster brute force','Quantum safety','Packet sniffing'], correctAnswer: 0, explanation: 'It enables operations without decryption.', points: 300 },
+    { id: 'q3', question: 'Secure multiparty computation means:', options: ['Multiple servers share keys','Parties compute without revealing inputs','Blockchain voting','Obfuscation'], correctAnswer: 1, explanation: 'It allows joint computation securely.', points: 300 },
+    { id: 'q4', question: 'Noise addition is core to:', options: ['Differential privacy','TLS','AES','Blockchain'], correctAnswer: 0, explanation: 'Noise masks individual contributions.', points: 300 },
+    { id: 'q5', question: 'PETs are important in:', options: ['Advertising','Cloud AI','Healthcare data sharing','All of the above'], correctAnswer: 3, explanation: 'They enable privacy across sectors.', points: 300 },
+    { id: 'q6', question: 'Downside of PETs is often:', options: ['Performance overhead','No privacy','Cost-free','Instant speed'], correctAnswer: 0, explanation: 'PETs can be computationally expensive.', points: 350 },
+    { id: 'q7', question: 'Google’s RAPPOR used:', options: ['Homomorphic encryption','Differential privacy','Blockchain','MPC'], correctAnswer: 1, explanation: 'RAPPOR was based on DP.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 27 -------------------
+{
+  id: 'hardware-security',
+  title: 'HARDWARE SECURITY & TRUSTED COMPUTING',
+  description: 'Defend against hardware Trojans, side-channel attacks, and ensure chip-level trust.',
+  difficulty: 'ELITE',
+  category: 'HARDWARE SECURITY',
+  isLocked: false,
+  requiredLevel: 11,
+  videoUrl: 'https://www.youtube.com/embed/MfU9oPgYqRI',
+  articleLinks: [
+    { title: 'Introduction to Hardware Security', url: 'https://csrc.nist.gov/projects/hardware-security' },
+    { title: 'Side-Channel Attacks Explained', url: 'https://www.cryptomathic.com/news-events/blog/side-channel-attacks' },
+    { title: 'Trusted Platform Modules (TPM)', url: 'https://trustedcomputinggroup.org/resource/tpm-main-specification/' },
+    { title: 'Hardware Trojans in ICs', url: 'https://www.sciencedirect.com/topics/computer-science/hardware-trojans' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'A side-channel attack exploits:', options: ['Software bugs','Physical leakages like power or timing','Network latency','User errors'], correctAnswer: 1, explanation: 'It leverages physical characteristics of hardware.', points: 300 },
+    { id: 'q2', question: 'TPM is used for:', options: ['Encryption only','Hardware-based trust & keys','Logging events','Data compression'], correctAnswer: 1, explanation: 'TPM secures keys and platform integrity.', points: 300 },
+    { id: 'q3', question: 'A hardware Trojan is:', options: ['Malware in firmware','Malicious circuitry in chips','Spyware on devices','Rootkit'], correctAnswer: 1, explanation: 'It’s a hidden modification in ICs.', points: 300 },
+    { id: 'q4', question: 'Spectre and Meltdown exploited:', options: ['Compiler errors','Speculative execution','DMA','Encryption flaws'], correctAnswer: 1, explanation: 'They abused speculative execution leaks.', points: 300 },
+    { id: 'q5', question: 'Countermeasure to side-channel is:', options: ['Data masking','AV updates','VPN','TLS'], correctAnswer: 0, explanation: 'Masking makes power/timing leaks unusable.', points: 300 },
+    { id: 'q6', question: 'PUFs (Physical Unclonable Functions) provide:', options: ['Unique chip identity','Random malware','Extra memory','Faster boot'], correctAnswer: 0, explanation: 'They exploit manufacturing randomness for IDs.', points: 350 },
+    { id: 'q7', question: 'Firmware integrity is ensured with:', options: ['TPM & Secure Boot','Firewalls','IDS','Honeypots'], correctAnswer: 0, explanation: 'Secure Boot checks firmware with trusted signatures.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 28 -------------------
+{
+  id: 'dark-web-intel',
+  title: 'DARK WEB INTELLIGENCE',
+  description: 'Monitor underground markets, forums, and criminal ecosystems for threat intelligence.',
+  difficulty: 'ELITE',
+  category: 'THREAT INTELLIGENCE',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/xFZjBGBbQ-0',
+  articleLinks: [
+    { title: 'Introduction to Dark Web Monitoring', url: 'https://www.recordedfuture.com/blog/dark-web-monitoring' },
+    { title: 'Illicit Marketplaces and Risks', url: 'https://www.europol.europa.eu/media-press/newsroom/news/dark-web-markets' },
+    { title: 'Tor & Anonymity', url: 'https://www.torproject.org/about/history/' },
+    { title: 'Cybercrime Intelligence from Dark Web', url: 'https://www.fireeye.com/blog/threat-research/2019/02/understanding-the-dark-web.html' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'The dark web is primarily accessed via:', options: ['VPN','Tor','Proxy','I2P only'], correctAnswer: 1, explanation: 'Tor provides onion routing for anonymity.', points: 300 },
+    { id: 'q2', question: 'A darknet market is:', options: ['Normal e-commerce site','Illegal goods marketplace','Public blog','Cloud repo'], correctAnswer: 1, explanation: 'Markets sell drugs, exploits, and stolen data.', points: 300 },
+    { id: 'q3', question: 'OSINT on the dark web involves:', options: ['Social engineering','Scraping forums and markets','Phishing','Credential stuffing'], correctAnswer: 1, explanation: 'Analysts extract intelligence from forums.', points: 300 },
+    { id: 'q4', question: 'Key risk in dark web monitoring is:', options: ['Exposure to malware & legality issues','Slow browsing','VPN cost','Weak passwords'], correctAnswer: 0, explanation: 'Analysts risk legal and infection exposure.', points: 300 },
+    { id: 'q5', question: 'Which protocol supports onion routing?', options: ['TCP/IP','Tor protocol','TLS','HTTP/3'], correctAnswer: 1, explanation: 'Tor is built on layered onion encryption.', points: 300 },
+    { id: 'q6', question: 'Dark web intelligence helps in:', options: ['Incident response','Threat actor profiling','Fraud detection','All of the above'], correctAnswer: 3, explanation: 'It supports multiple cybersecurity domains.', points: 350 },
+    { id: 'q7', question: 'Popular dark web forum focus is often:', options: ['Gaming mods','Hacking tools & data dumps','Photography','News'], correctAnswer: 1, explanation: 'Forums trade stolen credentials, exploits, etc.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 29 -------------------
+{
+  id: 'iot-botnet-defense',
+  title: 'IoT BOTNET DEFENSE',
+  description: 'Secure IoT ecosystems against botnets like Mirai through detection and mitigation.',
+  difficulty: 'ELITE',
+  category: 'IoT SECURITY',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/ojPp73CZlNs',
+  articleLinks: [
+    { title: 'Understanding Mirai Botnet', url: 'https://www.cloudflare.com/learning/ddos/mirai-botnet-ddos-attack/' },
+    { title: 'IoT Security Challenges', url: 'https://www.enisa.europa.eu/publications/baseline-security-recommendations-for-iot' },
+    { title: 'Botnet Detection Techniques', url: 'https://www.sciencedirect.com/science/article/pii/S0167404820302956' },
+    { title: 'IoT Firmware Security', url: 'https://www.iotsecurityfoundation.org/firmware-updates/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'The Mirai botnet primarily exploited:', options: ['Zero-days','Weak default passwords','SQL injection','VPN flaws'], correctAnswer: 1, explanation: 'Mirai used default IoT credentials.', points: 300 },
+    { id: 'q2', question: 'IoT botnets are dangerous because:', options: ['They affect only PCs','Massive DDoS power','No effect','Limited scope'], correctAnswer: 1, explanation: 'Botnets leverage millions of IoT devices.', points: 300 },
+    { id: 'q3', question: 'A key defense is:', options: ['Disable encryption','Frequent firmware updates','Port forwarding','Disable firewalls'], correctAnswer: 1, explanation: 'Updating firmware patches vulnerabilities.', points: 300 },
+    { id: 'q4', question: 'Command and control (C2) in botnets is:', options: ['Server controlling infected bots','IDS system','VPN','Browser plugin'], correctAnswer: 0, explanation: 'C2 servers manage botnet instructions.', points: 300 },
+    { id: 'q5', question: 'IoT device hardening involves:', options: ['Changing default creds','Updating firmware','Network segmentation','All of the above'], correctAnswer: 3, explanation: 'Defense requires multiple actions.', points: 300 },
+    { id: 'q6', question: 'DDoS mitigation against IoT botnets often requires:', options: ['Blackholing','Anycast CDN','Rate limiting','All of the above'], correctAnswer: 3, explanation: 'Multiple mitigations are combined.', points: 350 },
+    { id: 'q7', question: 'Best long-term IoT defense is:', options: ['AI-powered anomaly detection','Password rotation only','Shutting down IoT','ISP throttling'], correctAnswer: 0, explanation: 'AI detects unusual IoT traffic patterns.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 30 -------------------
+{
+  id: 'cyber-law-policy',
+  title: 'CYBER LAW & POLICY',
+  description: 'Explore global cybersecurity regulations, ethics, and digital rights frameworks.',
+  difficulty: 'ELITE',
+  category: 'GOVERNANCE',
+  isLocked: false,
+  requiredLevel: 13,
+  videoUrl: 'https://www.youtube.com/embed/8A1x4u-VweE',
+  articleLinks: [
+    { title: 'GDPR Key Principles', url: 'https://gdpr-info.eu/' },
+    { title: 'Budapest Convention on Cybercrime', url: 'https://www.coe.int/en/web/cybercrime/the-budapest-convention' },
+    { title: 'NIST Cybersecurity Framework', url: 'https://www.nist.gov/cyberframework' },
+    { title: 'UN Digital Rights Initiatives', url: 'https://www.un.org/en/digital-cooperation-panel' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'GDPR is primarily about:', options: ['Cloud security','Data protection & privacy','IoT devices','Encryption standards'], correctAnswer: 1, explanation: 'It governs personal data processing in the EU.', points: 300 },
+    { id: 'q2', question: 'The Budapest Convention focuses on:', options: ['Malware laws','International cybercrime cooperation','IoT regulation','Military hacking'], correctAnswer: 1, explanation: 'It’s a treaty for fighting cybercrime.', points: 300 },
+    { id: 'q3', question: 'NIST CSF core functions are:', options: ['Identify, Protect, Detect, Respond, Recover','Encrypt, Store, Delete','Block, Monitor, Patch','Plan, Execute, Review'], correctAnswer: 0, explanation: 'The five pillars define CSF actions.', points: 300 },
+    { id: 'q4', question: 'Privacy Shield agreement involved:', options: ['US & EU data transfers','IoT standards','Cloud access','Military hacking'], correctAnswer: 0, explanation: 'It governed data flows between EU and US.', points: 300 },
+    { id: 'q5', question: 'Cyber law challenges include:', options: ['Jurisdiction issues','Attribution','Cross-border enforcement','All of the above'], correctAnswer: 3, explanation: 'Cybercrime ignores geographic borders.', points: 300 },
+    { id: 'q6', question: 'The right to be forgotten is part of:', options: ['GDPR','CLOUD Act','HIPAA','PCI DSS'], correctAnswer: 0, explanation: 'It allows individuals to request deletion of personal data.', points: 350 },
+    { id: 'q7', question: 'The CLOUD Act relates to:', options: ['US law enforcement access to data','Quantum encryption','IoT firmware','Biometrics'], correctAnswer: 0, explanation: 'It compels US providers to hand over data.', points: 350 }
+  ],
+  maxScore: 2200
+},
+// ------------------- Module 31 -------------------
+{
+  id: 'threat-modeling',
+  title: 'THREAT MODELING FRAMEWORKS',
+  description: 'Develop structured approaches to identify, prioritize, and mitigate threats in systems and applications.',
+  difficulty: 'ELITE',
+  category: 'ARCHITECTURE',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/VA8h2YtGZpI',
+  articleLinks: [
+    { title: 'Threat Modeling Explained', url: 'https://owasp.org/www-community/Threat_Modeling' },
+    { title: 'Microsoft STRIDE Model', url: 'https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool' },
+    { title: 'DREAD Risk Rating', url: 'https://www.cisa.gov/news-events/news/threat-modeling-and-risk-assessment' },
+    { title: 'Practical Threat Modeling Guide', url: 'https://threatmodelingmanifesto.org/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Which is not part of STRIDE?', options: ['Spoofing','Tampering','Repudiation','Doxing'], correctAnswer: 3, explanation: 'Doxing is not in STRIDE.', points: 250 },
+    { id: 'q2', question: 'DREAD evaluates:', options: ['Vulnerabilities','Attack surface','Risk impact','Patch cycles'], correctAnswer: 2, explanation: 'DREAD quantifies risk impact.', points: 250 },
+    { id: 'q3', question: 'Which is a key benefit of threat modeling?', options: ['More firewalls','Faster code execution','Early risk identification','More documentation'], correctAnswer: 2, explanation: 'Threat modeling helps identify risks early in design.', points: 300 },
+    { id: 'q4', question: 'Attack tree analysis is used for:', options: ['Code optimization','Threat visualization','Cloud backups','Incident reporting'], correctAnswer: 1, explanation: 'It visualizes attacker paths.', points: 250 },
+    { id: 'q5', question: 'What’s the first step in threat modeling?', options: ['Define security controls','Identify assets & scope','Launch red team test','Encrypt traffic'], correctAnswer: 1, explanation: 'Scoping and asset identification come first.', points: 300 },
+    { id: 'q6', question: 'Which tool is often used for threat modeling?', options: ['Wireshark','Burp Suite','Microsoft TMT','Metasploit'], correctAnswer: 2, explanation: 'TMT is a dedicated threat modeling tool.', points: 250 },
+    { id: 'q7', question: 'The Threat Modeling Manifesto emphasizes:', options: ['Compliance','Resilience over risk','Zero trust','AI usage'], correctAnswer: 1, explanation: 'It highlights resilience-first principles.', points: 300 }
+  ],
+  maxScore: 1900
+},
+
+// ------------------- Module 32 -------------------
+{
+  id: 'advanced-cryptanalysis',
+  title: 'ADVANCED CRYPTANALYSIS',
+  description: 'Master breaking and analyzing cryptographic algorithms with modern and classical techniques.',
+  difficulty: 'ELITE',
+  category: 'CRYPTOGRAPHY',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/TkRz5iYVRA0',
+  articleLinks: [
+    { title: 'Cryptanalysis Overview', url: 'https://crypto.stackexchange.com/' },
+    { title: 'Linear and Differential Cryptanalysis', url: 'https://www.schneier.com/academic/archives/1990/12/differential_crypta.html' },
+    { title: 'Modern Attacks on AES', url: 'https://csrc.nist.gov/projects/block-cipher-techniques' },
+    { title: 'Post-Quantum Cryptanalysis', url: 'https://pqcrypto.org/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Differential cryptanalysis was first applied to:', options: ['RSA','DES','AES','ECC'], correctAnswer: 1, explanation: 'It was developed for DES.', points: 300 },
+    { id: 'q2', question: 'Which cryptanalytic attack targets mathematical weaknesses?', options: ['Side-channel','Brute force','Algebraic','Replay'], correctAnswer: 2, explanation: 'Algebraic attacks exploit math properties.', points: 250 },
+    { id: 'q3', question: 'What does linear cryptanalysis exploit?', options: ['Timing leaks','Linear approximations of cipher','Padding errors','Power consumption'], correctAnswer: 1, explanation: 'It uses linear relations in ciphers.', points: 300 },
+    { id: 'q4', question: 'Which attack type is relevant for quantum threats?', options: ['Grover’s algorithm','Cache timing','Rainbow tables','Salami slicing'], correctAnswer: 0, explanation: 'Grover speeds brute-force key search.', points: 300 },
+    { id: 'q5', question: 'Meet-in-the-middle attack applies to:', options: ['Block ciphers','Hash collisions','Digital signatures','Firewalls'], correctAnswer: 0, explanation: 'It weakens double encryption block ciphers.', points: 250 },
+    { id: 'q6', question: 'AES S-box is designed to resist:', options: ['Differential & linear attacks','SQL injection','Timing attacks','Brute force'], correctAnswer: 0, explanation: 'Non-linear S-box resists these attacks.', points: 250 },
+    { id: 'q7', question: 'Chosen ciphertext attack is relevant to:', options: ['RSA padding','VPN tunnels','DES ECB','Firewalls'], correctAnswer: 0, explanation: 'It breaks RSA via padding oracle vulnerabilities.', points: 300 }
+  ],
+  maxScore: 1950
+},
+// ------------------- Module 33 -------------------
+{
+  id: 'incident-command',
+  title: 'INCIDENT COMMAND & CRISIS RESPONSE',
+  description: 'Coordinate cyber incident management, crisis communication, and recovery under pressure.',
+  difficulty: 'ELITE',
+  category: 'OPERATIONS',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/UxZBoJtYjAE',
+  articleLinks: [
+    { title: 'NIST Incident Handling Guide', url: 'https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final' },
+    { title: 'Crisis Communication in Cybersecurity', url: 'https://www.cisa.gov/resources-tools/resources/incident-response' },
+    { title: 'CERT Coordination Center Best Practices', url: 'https://resources.sei.cmu.edu/library/subject-areas/incident-management/' },
+    { title: 'Lessons Learned from Major Breaches', url: 'https://www.enisa.europa.eu/publications' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'First phase of incident response per NIST?', options: ['Containment','Preparation','Recovery','Eradication'], correctAnswer: 1, explanation: 'Preparation is the foundation.', points: 250 },
+    { id: 'q2', question: 'Which team leads crisis comms?', options: ['SOC','Legal','PR/Communications','Red Team'], correctAnswer: 2, explanation: 'Communication teams handle external messaging.', points: 250 },
+    { id: 'q3', question: 'What is a playbook?', options: ['Firewall rule','Predefined response guide','Antivirus tool','Random checklist'], correctAnswer: 1, explanation: 'Playbooks outline predefined responses.', points: 300 },
+    { id: 'q4', question: 'Hot site is:', options: ['Unpatched system','Ready-to-use backup site','Encrypted data vault','Threat intel hub'], correctAnswer: 1, explanation: 'Hot site is a fully equipped backup site.', points: 300 },
+    { id: 'q5', question: 'After action reports provide:', options: ['Logs only','Lessons learned','New tools','Patching notes'], correctAnswer: 1, explanation: 'They document lessons learned.', points: 250 },
+    { id: 'q6', question: 'Incident command system (ICS) is adapted from:', options: ['Military','Disaster response','Banking','Forensics'], correctAnswer: 1, explanation: 'ICS is borrowed from emergency management.', points: 250 },
+    { id: 'q7', question: 'Key goal during a cyber crisis?', options: ['Silence media','Eradicate attackers','Ensure resilience & trust','Shut down systems'], correctAnswer: 2, explanation: 'Maintaining trust and continuity is critical.', points: 300 }
+  ],
+  maxScore: 1900
+},
+// ------------------- Module 34 -------------------
+{
+  id: 'ai-threat-detection',
+  title: 'AI-POWERED THREAT DETECTION',
+  description: 'Leverage artificial intelligence and machine learning models to detect and respond to cyber threats.',
+  difficulty: 'ELITE',
+  category: 'AI IN CYBER',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/8vW5d8nEBwg',
+  articleLinks: [
+    { title: 'AI in Cybersecurity Overview', url: 'https://www.ibm.com/security/artificial-intelligence' },
+    { title: 'ML for Intrusion Detection Systems', url: 'https://dl.acm.org/doi/10.1145/3372297.3417278' },
+    { title: 'Adversarial Attacks on AI Models', url: 'https://arxiv.org/abs/1412.6572' },
+    { title: 'Future of AI in Threat Hunting', url: 'https://www.weforum.org/agenda/2021/07/ai-cybersecurity/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'AI in cybersecurity mainly helps with:', options: ['Faster CPU','Automated threat detection','UI design','VPN tunneling'], correctAnswer: 1, explanation: 'AI automates anomaly detection.', points: 250 },
+    { id: 'q2', question: 'Which ML model is popular for anomaly detection?', options: ['CNN','RNN','Isolation Forest','GAN'], correctAnswer: 2, explanation: 'Isolation Forest detects outliers.', points: 300 },
+    { id: 'q3', question: 'Adversarial examples are:', options: ['AI-generated fake users','Inputs crafted to fool ML models','Encryption algorithms','Keyloggers'], correctAnswer: 1, explanation: 'They manipulate model predictions.', points: 300 },
+    { id: 'q4', question: 'Which dataset is used in IDS research?', options: ['MNIST','CICIDS2017','ImageNet','COCO'], correctAnswer: 1, explanation: 'CICIDS2017 is a common IDS dataset.', points: 250 },
+    { id: 'q5', question: 'Deep learning enhances:', options: ['Low latency','Feature extraction','Firmware updates','Code reviews'], correctAnswer: 1, explanation: 'It automates feature extraction from raw data.', points: 250 },
+    { id: 'q6', question: 'One risk of AI in cyber defense is:', options: ['Cost','Explainability & bias','Firewall rules','VPN speed'], correctAnswer: 1, explanation: 'Models can be biased and hard to explain.', points: 250 },
+    { id: 'q7', question: 'GANs in cyber defense can be used to:', options: ['Generate malware','Simulate realistic attack traffic','Encrypt traffic','Patch systems'], correctAnswer: 1, explanation: 'GANs generate synthetic attack data.', points: 300 }
+  ],
+  maxScore: 1900
+},
+// ------------------- Module 35 -------------------
+{
+  id: 'bio-cybersecurity',
+  title: 'BIO-CYBERSECURITY',
+  description: 'Protect biomedical devices, genomics pipelines, and healthcare systems from cyber threats and data poisoning.',
+  difficulty: 'ELITE',
+  category: 'HEALTHCARE SECURITY',
+  isLocked: false,
+  requiredLevel: 13,
+  videoUrl: 'https://www.youtube.com/embed/9b6XKc8X8hQ',
+  articleLinks: [
+    { title: 'Security Risks in Medical Devices', url: 'https://www.fda.gov/medical-devices' },
+    { title: 'Protecting Genomic Data', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC/' },
+    { title: 'Healthcare Cybersecurity Best Practices', url: 'https://www.hhs.gov/cybersecurity' },
+    { title: 'Data Poisoning in Bioinformatics', url: 'https://arxiv.org/abs/2002.00000' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'A primary risk for medical devices is:', options: ['Firmware vulnerabilities','Too many users','High battery life','Large screens'], correctAnswer: 0, explanation: 'Unpatched firmware can allow remote compromise.', points: 300 },
+    { id: 'q2', question: 'Genomic data privacy concerns mainly involve:', options: ['High bandwidth','Re-identification of donors','Lack of color','Slow PCR'], correctAnswer: 1, explanation: 'Genetic datasets can be re-identified if not protected.', points: 300 },
+    { id: 'q3', question: 'Data poisoning aims to:', options: ['Break ML models by corrupting training data','Encrypt backups','Improve performance','Shorten code'], correctAnswer: 0, explanation: 'Poisoned inputs cause incorrect model behavior.', points: 300 },
+    { id: 'q4', question: 'Medical device risk mitigation includes:', options: ['Secure boot & signed firmware','Open WiFi by default','Disable logs','Remove encryption'], correctAnswer: 0, explanation: 'Firmware signing and secure boot help prevent tampering.', points: 300 },
+    { id: 'q5', question: 'Which regulation often applies to health data?', options: ['HIPAA','GDPR only','PCI-DSS','DMCA'], correctAnswer: 0, explanation: 'HIPAA governs handling of protected health information in the U.S.', points: 300 },
+    { id: 'q6', question: 'A supply chain threat in biotech could be:', options: ['Malicious reagent labeling','Software dependency tampering','Both','None'], correctAnswer: 2, explanation: 'Both physical product tampering and software compromise are real risks.', points: 350 },
+    { id: 'q7', question: 'Best practice for ML models on biomedical data is:', options: ['Use differential privacy / PETs','Train on raw public data','No testing','Disable logging'], correctAnswer: 0, explanation: 'Privacy-enhancing tech reduces leakage of sensitive attributes.', points: 350 }
+  ],
+  maxScore: 2150
+},
+
+// ------------------- Module 36 -------------------
+{
+  id: 'election-security',
+  title: 'ELECTION SECURITY & RESILIENCE',
+  description: 'Defend electoral systems, voting infrastructure, and information ecosystems from manipulation and disruption.',
+  difficulty: 'ELITE',
+  category: 'NATION-STATE SECURITY',
+  isLocked: false,
+  requiredLevel: 14,
+  videoUrl: 'https://www.youtube.com/embed/4V2xJ7zL2k8',
+  articleLinks: [
+    { title: 'Securing Elections: Principles', url: 'https://www.idea.int/news-media/multimedia-reports' },
+    { title: 'Disinformation & Information Integrity', url: 'https://www.assembly.org/research' },
+    { title: 'Voting Machine Security', url: 'https://www.us-cert.gov/ics' },
+    { title: 'Resilience in Civic Tech', url: 'https://www.nist.gov/publications' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'A key vector for electoral interference is:', options: ['Disinformation campaigns','Faster polling places','Bigger ballots','More cookies'], correctAnswer: 0, explanation: 'Information operations aim to shape public perception.', points: 300 },
+    { id: 'q2', question: 'End-to-end verifiable voting systems provide:', options: ['Cryptographic auditability','Faster voting','No privacy','Public keys only'], correctAnswer: 0, explanation: 'They allow voters and auditors to verify results without revealing ballots.', points: 300 },
+    { id: 'q3', question: 'Supply chain risk to voting includes:', options: ['Malicious firmware in voting machines','Long queues','Advertising','Better UX'], correctAnswer: 0, explanation: 'Injected firmware or compromised components can alter results.', points: 300 },
+    { id: 'q4', question: 'Mitigations against disinformation include:', options: ['Media literacy & rapid response','Removing all news','Blocking internet','No communication'], correctAnswer: 0, explanation: 'Education and timely corrections reduce impact.', points: 300 },
+    { id: 'q5', question: 'A secure election backup strategy should include:', options: ['Immutable audit logs & paper trails','Only digital records','No logs','Public spreadsheets'], correctAnswer: 0, explanation: 'Paper trails and immutable logs enable reliable audits.', points: 300 },
+    { id: 'q6', question: 'Physical chain-of-custody for ballots ensures:', options: ['Tamper evidence & accountability','Faster counting','Public access','Encryption of votes'], correctAnswer: 0, explanation: 'Proper custody prevents undetected tampering.', points: 350 },
+    { id: 'q7', question: 'Red team exercises for elections test:', options: ['Voter behavior only','Systemic vulnerabilities across tech & info domains','Only ballots','Only registration'], correctAnswer: 1, explanation: 'Exercises simulate cross-domain attacks to improve resilience.', points: 350 }
+  ],
+  maxScore: 2150
+},
+
+// ------------------- Module 37 -------------------
+{
+  id: 'offensive-ai',
+  title: 'OFFENSIVE AI TECHNIQUES',
+  description: 'Understand how AI can be weaponized (deepfakes, automated social engineering, model-steering) to design defenses.',
+  difficulty: 'ELITE',
+  category: 'OFFENSIVE TECH',
+  isLocked: false,
+  requiredLevel: 15,
+  videoUrl: 'https://www.youtube.com/embed/5o6YhG4t2Xc',
+  articleLinks: [
+    { title: 'Deepfakes & Threats', url: 'https://www.deepfakes.org/research' },
+    { title: 'Automated Social Engineering', url: 'https://arxiv.org/abs/2006.00000' },
+    { title: 'Model Steering & Data Poisoning', url: 'https://adversarial-ml.github.io/' },
+    { title: 'Ethics & Governance of Offensive AI', url: 'https://www.partnershiponai.org/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'A common offensive AI risk is:', options: ['Deepfake-enabled fraud','Faster CPUs','More storage','Better UI'], correctAnswer: 0, explanation: 'Deepfakes facilitate impersonation and fraud at scale.', points: 300 },
+    { id: 'q2', question: 'Model-steering attacks aim to:', options: ['Manipulate model outputs by influencing training or inputs','Fix models automatically','Improve accuracy','Clean data'], correctAnswer: 0, explanation: 'Steering changes model behavior to attacker goals.', points: 300 },
+    { id: 'q3', question: 'Automated spear-phishing can be enhanced by:', options: ['Generative models that craft tailored messages','Turning off email','Encrypting everything','Deleting users'], correctAnswer: 0, explanation: 'Generative AI creates convincing targeted messages.', points: 300 },
+    { id: 'q4', question: 'Defenses against offensive AI include:', options: ['Watermarking content and provenance verification','Removing all ML','No internet','Disable emails'], correctAnswer: 0, explanation: 'Provenance and detection help spot synthetic content.', points: 300 },
+    { id: 'q5', question: 'Adversarial examples are used to:', options: ['Cause misclassification in ML models','Speed up training','Reduce memory','Patch systems'], correctAnswer: 0, explanation: 'They perturb inputs to fool models.', points: 300 },
+    { id: 'q6', question: 'Data poisoning in training pipelines results in:', options: ['Backdoored models','Immediate crashes','Faster inference','Better UX'], correctAnswer: 0, explanation: 'Poisoned data can implant backdoors or biases.', points: 350 },
+    { id: 'q7', question: 'Ethical offensive AI research must ensure:', options: ['Clear red-team rules, consent & mitigations','No experiments','Public release of all attacks','No documentation'], correctAnswer: 0, explanation: 'Responsible research needs guardrails and ethics.', points: 350 }
+  ],
+  maxScore: 2150
+},
+
+// ------------------- Module 38 -------------------
+{
+  id: 'space-systems-security',
+  title: 'SPACE SYSTEMS & SATELLITE SECURITY',
+  description: 'Secure satellites, ground stations, and spaceborne infrastructure from cyber and physical threats.',
+  difficulty: 'ELITE',
+  category: 'AEROSPACE SECURITY',
+  isLocked: false,
+  requiredLevel: 16,
+  videoUrl: 'https://www.youtube.com/embed/2Gf7xYgK8Bw',
+  articleLinks: [
+    { title: 'Satellite Cybersecurity Challenges', url: 'https://www.spacepolicy.org/' },
+    { title: 'Ground Station Hardening', url: 'https://www.nasa.gov/cyber' },
+    { title: 'Spacecraft Communications Security', url: 'https://www.esa.int/Safety_Security' },
+    { title: 'Supply Chain Risks in Aerospace', url: 'https://www.icao.int/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'A core threat to satellites is:', options: ['Jamming & spoofing of communications','Slow ground links','Better cameras','Larger antennas'], correctAnswer: 0, explanation: 'Jamming and GNSS spoofing disrupt signals and navigation.', points: 300 },
+    { id: 'q2', question: 'Ground station compromise can allow:', options: ['Command injection & satellite takeover','Faster downloads','Weather control','Free bandwidth'], correctAnswer: 0, explanation: 'Control of ground infrastructure can manipulate satellites.', points: 300 },
+    { id: 'q3', question: 'Space systems must consider both cyber and:', options: ['Physical threats & space environment hazards','Only software','Only firmware','Only users'], correctAnswer: 0, explanation: 'Radiation, micrometeoroids, and physical threats matter.', points: 300 },
+    { id: 'q4', question: 'Secure satellite comms use:', options: ['Encryption, authentication & anti-spoofing','Open telemetry','No security','Public keys only'], correctAnswer: 0, explanation: 'Robust crypto and auth protect links.', points: 300 },
+    { id: 'q5', question: 'A supply chain risk in space hardware could be:', options: ['Malicious components added during manufacture','Faster processors','Irrelevant backups','Bigger antennas'], correctAnswer: 0, explanation: 'Malicious or counterfeit parts can compromise missions.', points: 300 },
+    { id: 'q6', question: 'Resilience strategies include:', options: ['Distributed command, failover & anomaly detection','Disabling telemetry','No monitoring','Public consoles'], correctAnswer: 0, explanation: 'Redundancy and detection improve survivability.', points: 350 },
+    { id: 'q7', question: 'Regulatory coordination for space cyber is needed because:', options: ['Space is multi-jurisdictional & shared infrastructure','It is cheap','It is local only','It is unimportant'], correctAnswer: 0, explanation: 'International collaboration is required for norms and response.', points: 350 }
+  ],
+  maxScore: 2150
+}
 ];
