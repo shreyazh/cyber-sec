@@ -1,3 +1,7 @@
+// requiredLevel: XYZ, ----idhar change baaki hai.
+// urls edit karna --- videos + articles
+// isLocked: true, -------isme changes karna hai
+// chaho toh ek naya category bana lo ---- boht chaotic lag rha
 import { LearningModuleData } from '../types';
 
 export const learningModules: LearningModuleData[] = [
@@ -321,7 +325,7 @@ export const learningModules: LearningModuleData[] = [
       { id: 'q1', question: 'What is the shared responsibility model in cloud?', options: ['Provider secures everything','User secures everything','Provider secures infrastructure, user secures data/configs','Nobody secures it'], correctAnswer: 2, explanation: 'Providers secure hardware, users secure apps, data, configs.', points: 200 },
       { id: 'q2', question: 'Cloud misconfiguration leads to:', options: ['Faster apps','Data leaks','Cheaper bills','Better security'], correctAnswer: 1, explanation: 'Many breaches come from misconfigured cloud buckets.', points: 200 },
       { id: 'q3', question: 'Which is a cloud-specific threat?', options: ['SQL Injection','Man-in-the-middle','Insecure APIs','Phishing'], correctAnswer: 2, explanation: 'Insecure APIs expose cloud services.', points: 200 },
-      { id: 'q4', question: 'CASB stands for:', options: ['Cloud Access Security Broker','Central Authentication Security Base','Cloud Application Service Backup','Cybersecurity and Blockchain'], correctAnswer: 0, explanation: 'CASB provides visibility and policy enforcement for cloud.', points: 200 },
+      { id: 'q4', question: 'CASB stands for:', options: ['Cloud Access Security Broker','Central Authentication Security Base','Cloud Application Service Backup','Cybersecurity and Blockchain'], correctAnswer: 0, explanation: 'CASB(Cloud Access Security Broker) provides visibility and policy enforcement for cloud.', points: 200 },
       { id: 'q5', question: 'Zero trust in cloud means:', options: ['Trust everything inside network','No trust without verification','Only trust admin accounts','Ignore encryption'], correctAnswer: 1, explanation: 'Zero trust = never trust, always verify.', points: 250 }
     ],
     maxScore: 1050
@@ -905,8 +909,8 @@ export const learningModules: LearningModuleData[] = [
   description: 'Secure IoT ecosystems against botnets like Mirai through detection and mitigation.',
   difficulty: 'ELITE',
   category: 'IoT SECURITY',
-  isLocked: false,
-  requiredLevel: 12,
+  isLocked: true,
+  requiredLevel: 3,
   videoUrl: 'https://www.youtube.com/embed/ojPp73CZlNs',
   articleLinks: [
     { title: 'Understanding Mirai Botnet', url: 'https://www.cloudflare.com/learning/ddos/mirai-botnet-ddos-attack/' },
@@ -1154,12 +1158,12 @@ export const learningModules: LearningModuleData[] = [
   category: 'AEROSPACE SECURITY',
   isLocked: false,
   requiredLevel: 16,
-  videoUrl: 'https://www.youtube.com/embed/2Gf7xYgK8Bw',
+  videoUrl: 'https://www.youtube.com/embed/J7YLGZTwGPI',
   articleLinks: [
     { title: 'Satellite Cybersecurity Challenges', url: 'https://www.spacepolicy.org/' },
     { title: 'Ground Station Hardening', url: 'https://www.nasa.gov/cyber' },
     { title: 'Spacecraft Communications Security', url: 'https://www.esa.int/Safety_Security' },
-    { title: 'Supply Chain Risks in Aerospace', url: 'https://www.icao.int/' }
+    { title: 'Supply Chain Risks in Aerospace', url: 'https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain' }
   ],
   quiz: [
     { id: 'q1', question: 'A core threat to satellites is:', options: ['Jamming & spoofing of communications','Slow ground links','Better cameras','Larger antennas'], correctAnswer: 0, explanation: 'Jamming and GNSS spoofing disrupt signals and navigation.', points: 300 },
