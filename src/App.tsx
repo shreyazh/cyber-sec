@@ -133,7 +133,7 @@ function App() {
       
       <footer className="terminal-footer">
         <div className="system-info">
-          CYBERSEC.TERMINAL.V2.1 | USER: {currentUser.handle} | LVL: {currentUser.level}
+          CYBER-SEC.     | USER: {currentUser.handle} | LVL: {currentUser.level}
         </div>
       </footer>
     </div>
