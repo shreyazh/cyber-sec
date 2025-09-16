@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { UserData, LearningModuleData } from '../types';
 import ProgressBar from './ProgressBar';
 import { playBeep } from '../utils/sounds';
@@ -32,6 +32,21 @@ const Dashboard: React.FC<DashboardProps> = ({ user, modules, onModuleSelect }) 
     if (module.isLocked && user.level < module.requiredLevel) return 'LOCKED';
     return 'AVAILABLE';
   };
+
+  const [showBadgeAnimation, setShowBadgeAnimation] = useState(false);
+  const [newBadge, setNewBadge] = useState<string | null>(null);
+  const [prevBadges, setPrevBadges] = useState(user.badges);
+
+  useEffect(() => {
+    if (user.badges.length > prevBadges.length) {
+      const latestBadge = user.badges[user.badges.length - 1];
+      setNewBadge(latestBadge);
+      setShowBadgeAnimation(true);
+      setTimeout(() => setShowBadgeAnimation(false), 3500);
+    }
+    setPrevBadges(user.badges);
+    // eslint-disable-next-line
+  }, [user.badges]);
 
   return (
     <div className="dashboard">
@@ -123,8 +138,14 @@ const Dashboard: React.FC<DashboardProps> = ({ user, modules, onModuleSelect }) 
         <div className="achievements-grid">
           {user.badges.length > 0 ? (
             user.badges.slice(-3).map((badge, index) => (
-              <div key={index} className="achievement-badge">
-                <span className="badge-icon">🏆</span>
+              <div key={index} className="achievement-badge real-badge">
+                <span className="badge-svg">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="20" fill="#FFD700" stroke="#B8860B" strokeWidth="4" />
+                    <circle cx="24" cy="24" r="14" fill="#fffbe6" stroke="#FFD700" strokeWidth="2" />
+                    <text x="24" y="29" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#B8860B">★</text>
+                  </svg>
+                </span>
                 <span className="badge-name">{badge}</span>
               </div>
             ))
@@ -134,6 +155,28 @@ const Dashboard: React.FC<DashboardProps> = ({ user, modules, onModuleSelect }) 
             </div>
           )}
         </div>
+        {showBadgeAnimation && newBadge && (
+          <div className="badge-hurray-overlay">
+            <div className="badge-hurray-confetti">
+              {[...Array(30)].map((_, i) => (
+                <span key={i} className={`confetti confetti-${i % 6}`}></span>
+              ))}
+            </div>
+            <div className="badge-hurray-content">
+              <div className="achievement-badge real-badge big">
+                <span className="badge-svg">
+                  <svg width="96" height="96" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="20" fill="#FFD700" stroke="#B8860B" strokeWidth="4" />
+                    <circle cx="24" cy="24" r="14" fill="#fffbe6" stroke="#FFD700" strokeWidth="2" />
+                    <text x="24" y="29" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#B8860B">★</text>
+                  </svg>
+                </span>
+                <span className="badge-name">{newBadge}</span>
+              </div>
+              <div className="hurray-text">HURRAY! NEW BADGE UNLOCKED!</div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
