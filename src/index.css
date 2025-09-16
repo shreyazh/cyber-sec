@@ -1391,3 +1391,91 @@ body {
     text-align: center;
   }
 }
+
+.real-badge {
+  background: linear-gradient(135deg, #fffbe6 0%, #FFD700 60%, #fffbe6 100%);
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 16px 4px #FFD70088, 0 2px 8px #B8860B44;
+  border-radius: 32px;
+  position: relative;
+  overflow: visible;
+  animation: badge-pop 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.real-badge .badge-svg {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+.real-badge.big {
+  padding: 1.5rem 2.5rem;
+  font-size: 2rem;
+  box-shadow: 0 0 32px 8px #FFD700cc, 0 4px 16px #B8860B88;
+  border-width: 3px;
+}
+@keyframes badge-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.badge-hurray-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.badge-hurray-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: badge-pop 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.hurray-text {
+  color: #FFD700;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 16px #FFD700, 0 2px 8px #B8860B;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  animation: hurray-bounce 1s;
+}
+@keyframes hurray-bounce {
+  0% { transform: scale(0.7); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.badge-hurray-confetti {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+.confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: confetti-fall 1.5s linear forwards;
+}
+.confetti-0 { background: #FFD700; left: 10%; animation-delay: 0s; }
+.confetti-1 { background: #FF69B4; left: 20%; animation-delay: 0.1s; }
+.confetti-2 { background: #00ff00; left: 30%; animation-delay: 0.2s; }
+.confetti-3 { background: #00BFFF; left: 40%; animation-delay: 0.3s; }
+.confetti-4 { background: #FFA500; left: 50%; animation-delay: 0.4s; }
+.confetti-5 { background: #fff; left: 60%; animation-delay: 0.5s; }
+@keyframes confetti-fall {
+  0% { top: 40%; opacity: 1; transform: scale(1) rotate(0deg); }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; transform: scale(0.7) rotate(360deg); }
+}
