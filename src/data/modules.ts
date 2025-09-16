@@ -811,15 +811,91 @@ export const learningModules: LearningModuleData[] = [
     { title: 'Sandbox Evasion Techniques', url: 'https://attack.mitre.org/techniques/T1497/' }
   ],
   quiz: [
-    { id: 'q1', question: 'Ghidra is:', options: ['A Linux distro','A reverse engineering suite','A honeypot','AV software'], correctAnswer: 1, explanation: 'NSA’s open-source RE framework.', points: 300 },
-    { id: 'q2', question: 'Packed malware is:', options: ['Encrypted','Compressed/obfuscated','Self-replicating','Hardware bound'], correctAnswer: 1, explanation: 'Packing hides real code.', points: 300 },
-    { id: 'q3', question: 'Dynamic analysis involves:', options: ['Running malware in sandbox','Studying disassembly only','Hash comparison','Binary signing'], correctAnswer: 0, explanation: 'It executes malware in controlled envs.', points: 300 },
-    { id: 'q4', question: 'Anti-debugging is:', options: ['Blocking IDS','Detecting analyst tools','Evading honeypots','Encrypting payload'], correctAnswer: 1, explanation: 'Malware checks if being debugged.', points: 300 },
-    { id: 'q5', question: 'Unpacking often requires:', options: ['Disassemblers','Keyloggers','Credential theft','Firewalls'], correctAnswer: 0, explanation: 'Disassemblers help recover original code.', points: 300 },
-    { id: 'q6', question: 'API call tracing reveals:', options: ['Execution behavior','File size','Entropy','IP address only'], correctAnswer: 0, explanation: 'API calls show malware actions.', points: 350 },
-    { id: 'q7', question: 'Which file format is common in malware?', options: ['.ELF','.PE','.MP3','.JPEG'], correctAnswer: 1, explanation: 'Windows malware often uses Portable Executable.', points: 350 }
-  ],
-  maxScore: 2200
+    { id: 'q1',
+      question: 'You observe a Windows PE that stalls under common sandboxes, then spawns a signed LOLBin to fetch a 2nd stage. Which evasion is MOST likely and what dynamic step defeats it?',
+      options: [
+        'TLS callback anti-debug; disable CFG',
+        'Sleep patching + time skew; API hooking Sleep/Wait to fast-forward',
+        'SEH mangling; force SEH chain rebuild',
+        'Stack canaries; patch GS cookie'
+      ],
+      correctAnswer: 1,
+      explanation: 'Commodity packers frequently combine long sleeps with time checks. Hooking Sleep/Wait and faking GetTickCount fast-forwards execution to reveal the 2nd stage.',
+      points: 350
+    },
+    { id: 'q2',
+      question: 'Packed sample decrypts a section using ROL/XOR loop keyed by PEB -> BeingDebugged. What *static* technique recovers plaintext without running the binary?',
+      options: [
+        'Linear sweep disassembly',
+        'Emulate the loop over dumped section bytes with an initial key guess',
+        'Relocation stripping',
+        'Symbol recovery with PDBs'
+      ],
+      correctAnswer: 1,
+      explanation: 'Lightweight emulation of the decryptor loop over the raw section bytes recreates plaintext even offline.',
+      points: 300
+    },
+    { id: 'q3',
+      question: 'A sample injects into explorer.exe via QueueUserAPC + EarlyBird. Your memory dump lacks obvious strings. Which artifact best reveals C2?',
+      options: [
+        'TLS master secrets',
+        'Injected section entropy + decoded config blob in RWX',
+        'Prefetch trace of explorer.exe',
+        'SRUM network table'
+      ],
+      correctAnswer: 1,
+      explanation: 'Many families store a XOR/RC4 config in injected memory; scanning high-entropy RWX and decoding known layouts exposes C2.',
+      points: 350
+    },
+    { id: 'q4',
+      question: 'Malware ships with a custom import resolver. Which breakpoint placement yields MAX info with MIN noise?',
+      options: [
+        'NtMapViewOfSection',
+        'LdrGetProcedureAddress',
+        'NtProtectVirtualMemory',
+        'RtlDecompressBuffer'
+      ],
+      correctAnswer: 1,
+      explanation: 'Hooking LdrGetProcedureAddress reveals resolved APIs as the sample imports them dynamically.',
+      points: 300
+    },
+    { id: 'q5',
+      question: 'The sample fingerprints VM via CPUID hypervisor bit and MAC OUIs. What’s the safest counter-measure to preserve behavior while bypassing checks?',
+      options: [
+        'Patch CPUID to clear bit and spoof NIC OUIs at vSwitch',
+        'Disable networking',
+        'Run bare-metal only',
+        'Rename processes'
+      ],
+      correctAnswer: 0,
+      explanation: 'Targeted CPUID patching + NIC OUI spoofing keeps network behavior intact.',
+      points: 300
+    },
+    { id: 'q6',
+      question: 'Encrypted strings are referenced via tiny thunks. What IDA/Ghidra workflow reveals them at scale?',
+      options: [
+        'Manual xrefs',
+        'Pattern-match thunk prologues and auto-lift to deobfuscation function, then script bulk decoding',
+        'Opcode substitution',
+        'Rebuild import table'
+      ],
+      correctAnswer: 1,
+      explanation: 'Scripting around a detected thunk pattern scales string recovery.',
+      points: 350
+    },
+    { id: 'q7',
+      question: 'Which evidence MOST strongly proves a kernel-mode rootkit component?',
+      options: [
+        'Winsock LSP present',
+        'Hidden driver object + SSDT or ObCallbacks hooks with unsigned .sys',
+        'High CPU usage',
+        'Alternate data streams'
+      ],
+      correctAnswer: 1,
+      explanation: 'Kernel callback/SSDT hooks plus an unsigned driver are hallmarks of kernel rootkits.',
+      points: 400
+    }],
+  maxScore: 2350
 },
 // ------------------- Module 26 -------------------
 {
@@ -1175,5 +1251,273 @@ export const learningModules: LearningModuleData[] = [
     { id: 'q7', question: 'Regulatory coordination for space cyber is needed because:', options: ['Space is multi-jurisdictional & shared infrastructure','It is cheap','It is local only','It is unimportant'], correctAnswer: 0, explanation: 'International collaboration is required for norms and response.', points: 350 }
   ],
   maxScore: 2150
+},
+// 39 
+{
+  id: 'devsecops-sdlc',
+  title: 'SECURE SDLC & DEVSECOPS PLAYBOOK',
+  description: 'Bake security into planning, coding, build, and deploy with automated checks.',
+  difficulty: 'AGENT',
+  category: 'ENGINEERING',
+  isLocked: false,
+  requiredLevel: 6,
+  videoUrl: 'https://www.youtube.com/embed/5g0x2xv5w18',
+  articleLinks: [
+    { title: 'NIST SSDF (SP 800-218)', url: 'https://csrc.nist.gov/pubs/sp/800/218/final' },
+    { title: 'OWASP SAMM', url: 'https://owaspsamm.org/model' },
+    { title: 'Supply Chain Levels for Software Artifacts (SLSA)', url: 'https://slsa.dev/' }
+  ],
+  quiz: [
+    { id: 'q1', question: 'Which control most directly reduces build-pipeline tampering?', options: ['Unit tests', 'Provenance (SLSA) + signed artifacts', 'Longer PR templates', 'Monorepo only'], correctAnswer: 1, explanation: 'Provenance and signing protect artifacts.', points: 250 },
+    { id: 'q2', question: 'Best stage to threat-model?', options: ['After release', 'Design/requirements', 'Only during pen test', 'Never'], correctAnswer: 1, explanation: 'Early modeling prevents expensive fixes.', points: 250 },
+    { id: 'q3', question: 'A secure PR gate often includes:', options: ['Style checks only', 'SAST/DAST/Secrets scanning + required reviews', 'Manual deploys only', 'Weekend merges'], correctAnswer: 1, explanation: 'Automated checks + human review.', points: 300 },
+    { id: 'q4', question: 'SBOM primarily improves:', options: ['Latency', 'Component visibility & vuln response', 'UX', 'CDN perf'], correctAnswer: 1, explanation: 'Know what you run.', points: 250 },
+    { id: 'q5', question: 'Golden path CI pattern:', options: ['Ad-hoc scripts', 'Reusable hardened workflows', 'Per-repo snowflakes', 'Skip caching'], correctAnswer: 1, explanation: 'Standardized hardened pipelines.', points: 300 }
+  ],
+  maxScore: 1350
+},
+// 40
+{
+  id: 'k8s-security-deep-dive',
+  title: 'KUBERNETES SECURITY DEEP DIVE',
+  description: 'Lock down clusters: RBAC, network policies, admission control, and supply chain.',
+  difficulty: 'ELITE',
+  category: 'CLOUD',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/POC3A0HnWJw',
+  articleLinks: [
+    { title: 'Kubernetes Security Overview', url: 'https://kubernetes.io/docs/concepts/security/' },
+    { title: 'CNCF TAG Security Whitepaper', url: 'https://github.com/cncf/tag-security' },
+    { title: 'Pod Security Admission', url: 'https://kubernetes.io/docs/concepts/security/pod-security-standards/' }
+  ],
+  quiz: [
+    { id:'q1', question:'Best control to block privileged pods org-wide?', options:['Calico only','Pod Security Admission with baseline/restricted','DaemonSets','CRI swap'], correctAnswer:1, explanation:'PSA enforces pod security.', points:320 },
+    { id:'q2', question:'Cluster-admin creds should be scoped via:', options:['Opaque secrets','Ephemeral certs + RBAC + audit','Static kubeconfig', 'NodePorts'], correctAnswer:1, explanation:'Short-lived certs & RBAC reduce risk.', points:320 },
+    { id:'q3', question:'Image supply-chain hardening:', options:[':latest tags','Sigstore/cosign signing + policy', 'No SBOM', 'Allow root'], correctAnswer:1, explanation:'Verify provenance at admission.', points:340 },
+    { id:'q4', question:'Egress control for pods is best with:', options:['SecurityContext only','NetworkPolicies', 'Labels', 'ClusterIP'], correctAnswer:1, explanation:'Policies define allowed flows.', points:320 },
+    { id:'q5', question:'ServiceAccount token abuse mitigated by:', options:['Auto-mount tokens everywhere','BoundServiceAccountTokenVolume + audience scoping','Long TTL static tokens','Disable RBAC'], correctAnswer:1, explanation:'Scoped, short-lived tokens.', points:360 },
+    { id:'q6', question:'Lateral movement detection:', options:['CPU usage','Audit events + eBPF network sensors','DNS only','Pod names'], correctAnswer:1, explanation:'Telemetry for behavior.', points:340 },
+    { id:'q7', question:'If etcd is exposed:', options:['Nothing happens','Cluster state leakage & secret theft likely','Only logs leak','It’s safe by default'], correctAnswer:1, explanation:'Etcd must be isolated/encrypted.', points:380 }
+  ],
+  maxScore: 2380
+},
+// 41
+{
+  id: 'api-security-oauth2',
+  title: 'API SECURITY & OAUTH2/OIDC',
+  description: 'Design secure APIs with OAuth2.1, OIDC, scopes, and robust token practices.',
+  difficulty: 'AGENT',
+  category: 'APPLICATION SECURITY',
+  isLocked: false,
+  requiredLevel: 7,
+  videoUrl: 'https://www.youtube.com/embed/996OiexHze0',
+  articleLinks: [
+    { title: 'OAuth 2.1 Draft Overview', url: 'https://oauth.net/2.1/' },
+    { title: 'OpenID Connect Core', url: 'https://openid.net/specs/openid-connect-core-1_0.html' },
+    { title: 'API Security Top 10 (OWASP)', url: 'https://owasp.org/www-project-api-security/' }
+  ],
+  quiz: [
+    { id:'q1', question:'Best flow for server-side web apps?', options:['Implicit','Authorization Code with PKCE','Password grant','Device code'], correctAnswer:1, explanation:'Auth Code + PKCE is modern default.', points:250 },
+    { id:'q2', question:'Audience restriction prevents:', options:['Replay','Token confusion across services','Latency', 'CORS'], correctAnswer:1, explanation:'aud claim binds token to API.', points:250 },
+    { id:'q3', question:'Where to store access tokens in SPAs?', options:['localStorage', 'In memory (short-lived) + BFF pattern', 'Cookies without flags','Anywhere'], correctAnswer:1, explanation:'Reduce exfiltration surface.', points:300 },
+    { id:'q4', question:'Scope design principle:', options:['Monolith scope','Least privilege fine-grained scopes','One mega scope','Dynamic scopes in token'], correctAnswer:1, explanation:'Principle of least privilege.', points:250 },
+    { id:'q5', question:'Refresh token risk is mitigated by:', options:['Long TTL','Rotating tokens + reuse detection','Sharing tokens', 'Hardcoding'], correctAnswer:1, explanation:'Rotation & detection limit abuse.', points:300 }
+  ],
+  maxScore: 1350
+},
+// 42
+{
+  id: 'email-auth',
+  title: 'EMAIL AUTH: SPF, DKIM, DMARC',
+  description: 'Stop spoofing and improve deliverability with domain-level email authentication.',
+  difficulty: 'ROOKIE',
+  category: 'EMAIL SECURITY',
+  isLocked: false,
+  requiredLevel: 2,
+  videoUrl: 'https://www.youtube.com/embed/pP6t6vK7jQo',
+  articleLinks: [
+    { title: 'SPF Project', url: 'https://www.openspf.org/' },
+    { title: 'DKIM.org', url: 'https://dkim.org/' },
+    { title: 'DMARC.org Overview', url: 'https://dmarc.org/overview/' }
+  ],
+  quiz: [
+    { id:'q1', question:'SPF validates:', options:['Sender IP authorized by domain','Message body', 'Attachments','Recipients'], correctAnswer:0, explanation:'SPF is IP-based.', points:200 },
+    { id:'q2', question:'DKIM provides:', options:['Link protection','Domain-level signature of headers/body','Spam scoring','TLS'], correctAnswer:1, explanation:'Cryptographic signatures.', points:200 },
+    { id:'q3', question:'DMARC alignment requires:', options:['SPF OR DKIM aligned to From:', 'Just TLS', 'Both always', 'None'], correctAnswer:0, explanation:'At least one aligned.', points:250 },
+    { id:'q4', question:'Best rollout:', options:['p=reject immediately', 'monitor (p=none) → quarantine → reject', 'Skip rua/ruf', 'Wildcard everything'], correctAnswer:1, explanation:'Gradual with reports.', points:200 },
+    { id:'q5', question:'BIMI adds:', options:['Icons in clients via VMCs','TLS', 'Spam filter', 'Quarantine'], correctAnswer:0, explanation:'Brand indicators after DMARC.', points:250 }
+  ],
+  maxScore: 1100
+},
+// 43
+{
+  id: 'browser-webauthn',
+  title: 'PASSKEYS, WEBAUTHN & FIDO2',
+  description: 'Phishing-resistant authentication using platform and roaming authenticators.',
+  difficulty: 'AGENT',
+  category: 'ACCESS CONTROL',
+  isLocked: false,
+  requiredLevel: 5,
+  videoUrl: 'https://www.youtube.com/embed/UVlqCw3rK5w',
+  articleLinks: [
+    { title: 'WebAuthn Level 3 (W3C)', url: 'https://www.w3.org/TR/webauthn-3/' },
+    { title: 'FIDO2 Overview', url: 'https://fidoalliance.org/fido2/' },
+    { title: 'Passkeys Explained', url: 'https://passkeys.dev/' }
+  ],
+  quiz: [
+    { id:'q1', question:'WebAuthn resists phishing because:', options:['Longer passwords', 'Origin-bound challenges & key pairs', 'CAPTCHAs', 'Email codes'], correctAnswer:1, explanation:'Origin binding prevents replay.', points:250 },
+    { id:'q2', question:'Best UX with high security:', options:['Passwords only','Passkeys synced across devices + backup key', 'SMS', 'Email OTP'], correctAnswer:1, explanation:'Passkeys combine security/UX.', points:250 },
+    { id:'q3', question:'Roaming authenticators are:', options:['Platform only', 'External (USB/NFC/BLE) keys', 'TOTP apps', 'Hardware TPMs only'], correctAnswer:1, explanation:'Security keys can roam.', points:250 },
+    { id:'q4', question:'Attestation enables:', options:['Tracking users', 'Policy on authenticator properties', 'Longer tokens', 'None'], correctAnswer:1, explanation:'Constrain hardware types.', points:300 },
+    { id:'q5', question:'Fallback strategy should avoid:', options:['SMTP reset', 'Weak phishable flows', 'Helpdesk social engineering', 'All of the above'], correctAnswer:3, explanation:'Keep fallback strong.', points:300 }
+  ],
+  maxScore: 1350
+},
+// 44
+{
+  id: 'insider-dlp',
+  title: 'INSIDER THREAT & DLP',
+  description: 'Detect and prevent data exfiltration by malicious or careless insiders.',
+  difficulty: 'AGENT',
+  category: 'DATA SECURITY',
+  isLocked: false,
+  requiredLevel: 6,
+  videoUrl: 'https://www.youtube.com/embed/4j4l9qO3cGU',
+  articleLinks: [
+    { title: 'NIST Insider Threat Guide', url: 'https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final' },
+    { title: 'Mitre ATT&CK: Exfiltration', url: 'https://attack.mitre.org/tactics/TA0010/' },
+    { title: 'DLP Program Basics', url: 'https://www.sans.org/blog/data-loss-prevention-dlp/' }
+  ],
+  quiz: [
+    { id:'q1', question:'Strongest predictor of insider risk combines:', options:['Badge data', 'Behavior + access patterns + HR signals', 'MFA', 'IP allowlists'], correctAnswer:1, explanation:'Multi-signal analytics.', points:250 },
+    { id:'q2', question:'Hallmark of low-friction DLP:', options:['Block everything','Context-aware policies + coaching', 'Email bans', 'USB bans only'], correctAnswer:1, explanation:'Coach > hard blocks.', points:250 },
+    { id:'q3', question:'Shadow channels include:', options:['SFTP only','Personal email, cloud drives, messaging apps', 'VPN only', 'SSH only'], correctAnswer:1, explanation:'Multiple exfil paths.', points:300 },
+    { id:'q4', question:'Best protection for source code exfil:', options:['PDF watermarks','Repo-aware DLP + canary commits', 'Disable Git', 'ZIP scans only'], correctAnswer:1, explanation:'Repository context matters.', points:300 },
+    { id:'q5', question:'True/False: DLP without user trust is sustainable.', options:['True','False'], correctAnswer:1, explanation:'People bypass hostile controls.', points:250 }
+  ],
+  maxScore: 1350
+},
+// 45
+{
+  id: 'siem-detection-eng',
+  title: 'SIEM & DETECTION ENGINEERING',
+  description: 'Build robust detections, reduce noise, and measure coverage.',
+  difficulty: 'AGENT',
+  category: 'OPERATIONS',
+  isLocked: false,
+  requiredLevel: 7,
+  videoUrl: 'https://www.youtube.com/embed/6m1sQb6s2rk',
+  articleLinks: [
+    { title: 'MITRE ATT&CK', url: 'https://attack.mitre.org/' },
+    { title: 'Detection as Code Concepts', url: 'https://www.sigmahq-publisher.github.io/' },
+    { title: 'Measuring SOC Effectiveness', url: 'https://www.first.org/resources/papers/' }
+  ],
+  quiz: [
+    { id:'q1', question:'Best way to keep rules maintainable:', options:['Copy/paste','Detection-as-code + CI tests', 'One giant rule', 'Email rules'], correctAnswer:1, explanation:'Versioned rules + CI.', points:250 },
+    { id:'q2', question:'Coverage is best measured by:', options:['# of rules', 'ATT&CK mapping + test cases', '# of alerts', 'Dashboards'], correctAnswer:1, explanation:'Map to behaviors & test.', points:300 },
+    { id:'q3', question:'Noise control:', options:['Disable rules', 'Thresholding, lookbacks, entity risk scoring', 'Shorter logs', 'CSV export'], correctAnswer:1, explanation:'Tune, don’t blind.', points:250 },
+    { id:'q4', question:'Replay validation uses:', options:['Prod only', 'Simulated events & adversary emulation', 'Random traffic', 'None'], correctAnswer:1, explanation:'Validation by emulation.', points:250 },
+    { id:'q5', question:'Detection drift is mitigated by:', options:['Static rules', 'Scheduled evaluation against fresh telemetry', 'Bigger CPU', 'DNS tweaks'], correctAnswer:1, explanation:'Continuously re-test rules.', points:300 }
+  ],
+  maxScore: 1350
+},
+// 46
+{
+  id: 'tls-pki-engineering',
+  title: 'TLS & PKI ENGINEERING',
+  description: 'Design, operate, and audit certificates, CAs, and TLS at scale.',
+  difficulty: 'ELITE',
+  category: 'CRYPTOGRAPHY',
+  isLocked: false,
+  requiredLevel: 12,
+  videoUrl: 'https://www.youtube.com/embed/Zb7uK5c9V1U',
+  articleLinks: [
+    { title: 'RFC 8446 (TLS 1.3)', url: 'https://www.rfc-editor.org/rfc/rfc8446' },
+    { title: 'CAB Forum Baseline Requirements', url: 'https://cabforum.org/baseline-requirements-documents/' },
+    { title: 'OCSP Stapling & Must-Staple', url: 'https://letsencrypt.org/docs/internet-security-research-group/' }
+  ],
+  quiz: [
+    { id:'q1', question:'Why prefer TLS 1.3?', options:['More ciphers', 'Fewer round trips + modern AEAD suites', 'Because trendy', 'HTTP/3 only'], correctAnswer:1, explanation:'Performance + security.', points:320 },
+    { id:'q2', question:'Must-Staple helps by:', options:['Speed only','Enforcing fresh revocation status', 'Bigger certs','HSTS'], correctAnswer:1, explanation:'Revocation at client.', points:340 },
+    { id:'q3', question:'Internal PKI risk:', options:['Short lifetimes', 'Shadow CAs & weak issuance controls', 'CT logs', 'SNI'], correctAnswer:1, explanation:'Issuance control is key.', points:340 },
+    { id:'q4', question:'Cipher choice today:', options:['CBC suites', 'TLS_AES_128_GCM_SHA256 or chacha20-poly1305', 'RC4', '3DES'], correctAnswer:1, explanation:'Use AEAD modern suites.', points:360 },
+    { id:'q5', question:'CT logs mainly provide:', options:['OCSP','Certificate transparency & mis-issuance detection', 'DNS', 'Pinning'], correctAnswer:1, explanation:'Detect rogue certs.', points:360 },
+    { id:'q6', question:'Mutual TLS improves:', options:['Only client auth', 'Both ends auth + channel binding', 'Only server auth','DNS'], correctAnswer:1, explanation:'mTLS authenticates both peers.', points:360 },
+    { id:'q7', question:'Safest zero-downtime rotation:', options:['Big-bang', 'Overlap validity + staged rollout + canary', 'Never rotate','Wildcard only'], correctAnswer:1, explanation:'Overlap avoids outages.', points:380 }
+  ],
+  maxScore: 2460
+},
+// 47
+{
+  id: 'global-privacy-advanced',
+  title: 'GLOBAL PRIVACY LAW ADVANCED',
+  description: 'Deep dive into GDPR, CCPA/CPRA, LGPD, PIPEDA, PDPA, and cross-border transfers.',
+  difficulty: 'AGENT',
+  category: 'PRIVACY',
+  isLocked: false,
+  requiredLevel: 8,
+  videoUrl: 'https://www.youtube.com/embed/0gkW1m3vZcA',
+  articleLinks: [
+    { title: 'EDPB Guidance Hub', url: 'https://edpb.europa.eu/our-work-tools/general-guidance_en' },
+    { title: 'CPRA Regulations', url: 'https://cppa.ca.gov/regulations' },
+    { title: 'OECD Privacy Guidelines', url: 'https://www.oecd.org/sti/privacyguidelines.htm' }
+  ],
+  quiz: [
+    { id:'q1', question:'GDPR Art. 46 mechanisms include:', options:['Standard Contractual Clauses', 'Verbal promises','VPN','Cookie banners'], correctAnswer:0, explanation:'SCCs enable transfers.', points:250 },
+    { id:'q2', question:'DPIA triggers include:', options:['Low risk','Large-scale special-category data', 'Personal blog', 'Open data only'], correctAnswer:1, explanation:'High-risk processing.', points:300 },
+    { id:'q3', question:'CCPA/CPRA adds a right to:', options:['Forget only','Correct and limit use of sensitive PI', 'Portability only', 'Erasure only'], correctAnswer:1, explanation:'CPRA expands rights.', points:250 },
+    { id:'q4', question:'Lawful basis MOST misused:', options:['Consent without granularity', 'Contract', 'Legal obligation', 'Vital interests'], correctAnswer:0, explanation:'Consent must be informed/specific.', points:250 },
+    { id:'q5', question:'Records of processing help with:', options:['SEO','Accountability & audits','CDN','DevOps'], correctAnswer:1, explanation:'Art. 30 compliance.', points:300 }
+  ],
+  maxScore: 1400
+},
+// 48
+{
+  id: 'pci-dss-payments',
+  title: 'PCI DSS & PAYMENT SECURITY',
+  description: 'Protect cardholder data and architect compliant payment flows.',
+  difficulty: 'AGENT',
+  category: 'GOVERNANCE',
+  isLocked: false,
+  requiredLevel: 7,
+  videoUrl: 'https://www.youtube.com/embed/1K1m9m0h2wY',
+  articleLinks: [
+    { title: 'PCI DSS 4.0 Quick Reference', url: 'https://www.pcisecuritystandards.org/document_library' },
+    { title: 'Tokenization Guidance', url: 'https://www.pcisecuritystandards.org' },
+    { title: 'NIST Tokenization Overview', url: 'https://csrc.nist.gov/projects/privacy-engineering' }
+  ],
+  quiz: [
+    { id:'q1', question:'Primary way to reduce PCI scope:', options:['VPN','Outsource payment capture & tokenize', 'IP allowlist', 'EDR'], correctAnswer:1, explanation:'Hosted fields/tokenization minimize scope.', points:250 },
+    { id:'q2', question:'PAN storage allowed if:', options:['Encrypted + access controls + retention limits','Plain text', 'Email', 'CSV in drive'], correctAnswer:0, explanation:'Strict controls required.', points:300 },
+    { id:'q3', question:'SAQ type depends on:', options:['Logo', 'Payment channel architecture', 'Company size', 'Country'], correctAnswer:1, explanation:'Architecture determines SAQ.', points:250 },
+    { id:'q4', question:'Key PCI logging principle:', options:['Log PAN fully', 'Mask PAN; restrict access', 'No logs', 'Store CVV'], correctAnswer:1, explanation:'Protect sensitive fields.', points:250 },
+    { id:'q5', question:'Best practice for third-party gateways:', options:['Implicit trust','Due diligence + contracts + monitoring', 'DIY', 'Ignore AOCs'], correctAnswer:1, explanation:'Vendors extend risk surface.', points:300 }
+  ],
+  maxScore: 1350
+},
+// 49
+{
+  id: 'wireless-bluetooth-security',
+  title: 'WIRELESS & BLUETOOTH SECURITY',
+  description: 'Secure Wi-Fi and Bluetooth stacks, from WPA3 to BLE attacks.',
+  difficulty: 'ROOKIE',
+  category: 'NETWORK',
+  isLocked: false,
+  requiredLevel: 3,
+  videoUrl: 'https://www.youtube.com/embed/4qg1y2lEw0w',
+  articleLinks: [
+    { title: 'WPA3 Overview (Wi-Fi Alliance)', url: 'https://www.wi-fi.org/discover-wi-fi/security' },
+    { title: 'Bluetooth Security Guide', url: 'https://www.bluetooth.com/learn-about-bluetooth/tech-overview/' },
+    { title: 'KRACK & Dragonblood Primers', url: 'https://www.dragonblood.io/' }
+  ],
+  quiz: [
+    { id:'q1', question:'WPA3 SAE improves:', options:['Open Wi-Fi','Offline dictionary resistance', 'MAC filtering', 'WEP'], correctAnswer:1, explanation:'Password-authenticated key exchange.', points:200 },
+    { id:'q2', question:'BLE risk:', options:['Pairing mode misconfig & Just Works', 'Too much bandwidth', 'Expensive radios', 'Fiber only'], correctAnswer:0, explanation:'Weak pairing is exploitable.', points:250 },
+    { id:'q3', question:'Enterprise Wi-Fi hardening:', options:['Shared PSK', '802.1X + certs + per-user auth', 'Open network', 'Hidden SSID'], correctAnswer:1, explanation:'Per-user identities.', points:250 },
+    { id:'q4', question:'Rogue AP detection via:', options:['LED color','WIDS + RF scans', 'SSID length', 'Captcha'], correctAnswer:1, explanation:'Wireless IDS monitors airspace.', points:200 },
+    { id:'q5', question:'Guest networks should be:', options:['Flat LAN','Isolated VLAN with egress limits', 'Bridged to prod', 'Open L2'], correctAnswer:1, explanation:'Segment guests.', points:250 }
+  ],
+  maxScore: 1150
 }
 ];
