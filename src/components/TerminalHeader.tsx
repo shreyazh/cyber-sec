@@ -73,7 +73,7 @@ const TerminalHeader: React.FC<TerminalHeaderProps> = ({
     <header className="terminal-header">
       <div className="header-top">
         <div className="system-title">
-          CYBERSEC.TERMINAL.V2.1
+          CYBER-SEC.  
         </div>
         <div className="system-time">
           {currentTime.toLocaleString()}
