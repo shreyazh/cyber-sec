@@ -311,7 +311,7 @@ export const learningModules: LearningModuleData[] = [
     category: 'CLOUD',
     isLocked: false,
     requiredLevel: 4,
-    videoUrl: 'https://www.youtube.com/embed/2LaAJq1lB1I',
+    videoUrl: "https://www.youtube.com/embed/dRXRAFo3OiQ",
     articleLinks: [
       { title: 'Cloud Security Alliance Basics', url: 'https://cloudsecurityalliance.org/' },
       { title: 'Shared Responsibility in the Cloud', url: 'https://aws.amazon.com/compliance/shared-responsibility-model/' },
@@ -335,7 +335,7 @@ export const learningModules: LearningModuleData[] = [
     category: 'OPERATIONS',
     isLocked: false,
     requiredLevel: 3,
-    videoUrl: 'https://www.youtube.com/embed/qlJ0jHgC2gE',
+    videoUrl: 'https://www.youtube.com/embed/CxsPQrXQajc',
     articleLinks: [
       { title: 'NIST Computer Security Incident Handling Guide', url: 'https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf' },
       { title: 'Cyber Incident Response Best Practices', url: 'https://us-cert.cisa.gov/incidentresponse' },
@@ -359,11 +359,12 @@ export const learningModules: LearningModuleData[] = [
     category: 'DATA SECURITY',
     isLocked: false,
     requiredLevel: 2,
-    videoUrl: 'https://www.youtube.com/embed/AQDCe585Lnc',
+    videoUrl: 'https://www.youtube.com/embed/JoeiLuFNBc4',
     articleLinks: [
       { title: 'Encryption Basics', url: 'https://www.khanacademy.org/computing/computer-science/cryptography' },
       { title: 'Symmetric vs Asymmetric Encryption', url: 'https://www.ssl.com/faqs/symmetric-vs-asymmetric-encryption/' },
-      { title: 'Hashing Explained', url: 'https://www.cloudflare.com/learning/cryptography/what-is-cryptography/' }
+      { title: 'Hashing Explained', url: 'https://www.cloudflare.com/learning/cryptography/what-is-cryptography/' },
+      {title: 'Course', url: 'https://youtu.be/j_8PLI_wCVU'}
     ],
     quiz: [
       { id: 'q1', question: 'Symmetric encryption uses:', options: ['One key for both encryption and decryption','Two different keys','No keys','Multiple passwords'], correctAnswer: 0, explanation: 'Symmetric uses a single secret key.', points: 200 },
