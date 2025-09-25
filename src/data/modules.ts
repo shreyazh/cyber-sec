@@ -364,7 +364,7 @@ export const learningModules: LearningModuleData[] = [
       { title: 'Encryption Basics', url: 'https://www.khanacademy.org/computing/computer-science/cryptography' },
       { title: 'Symmetric vs Asymmetric Encryption', url: 'https://www.ssl.com/faqs/symmetric-vs-asymmetric-encryption/' },
       { title: 'Hashing Explained', url: 'https://www.cloudflare.com/learning/cryptography/what-is-cryptography/' },
-      {title: 'Course', url: 'https://www.youtube.com/j_8PLI_wCVU'}
+      {title: 'Course', url: 'https://youtu.be/j_8PLI_wCVU'}
     ],
     quiz: [
       { id: 'q1', question: 'Symmetric encryption uses:', options: ['One key for both encryption and decryption','Two different keys','No keys','Multiple passwords'], correctAnswer: 0, explanation: 'Symmetric uses a single secret key.', points: 200 },
