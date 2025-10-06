@@ -408,10 +408,10 @@ export const learningModules: LearningModuleData[] = [
     category: 'ACCESS CONTROL',
     isLocked: false,
     requiredLevel: 2,
-    videoUrl: 'https://www.youtube.com/embed/3C2V_G8SzK8',
+    videoUrl: 'https://m.youtube.com/embed/v=5uNifnVlBy4',
     articleLinks: [
-      { title: 'What is IAM?', url: 'https://www.okta.com/identity-101/what-is-identity-and-access-management/' },
-      { title: 'Principle of Least Privilege', url: 'https://www.csoonline.com/article/3434700/least-privilege-principle.html' },
+      { title: 'What is IAM?', url: 'https://www.microsoft.com/en-us/security/business/security-101/what-is-identity-access-management-iam' },
+      { title: 'Principle of Least Privilege', url: 'https://www.paloaltonetworks.com/cyberpedia/what-is-the-principle-of-least-privilege' },
       { title: 'Zero Trust Access', url: 'https://www.crowdstrike.com/cybersecurity-101/zero-trust-security/' }
     ],
     quiz: [
@@ -663,11 +663,11 @@ export const learningModules: LearningModuleData[] = [
   category: 'CRITICAL INFRASTRUCTURE',
   isLocked: false,
   requiredLevel: 20,
-  videoUrl: 'https://www.youtube.com/embed/AXQ1YNyL3-o',
+  videoUrl: 'https://www.youtube.com/embed/xk-d4Bc0xII',
   articleLinks: [
     { title: 'What is SCADA Security?', url: 'https://www.cisa.gov/topics/industrial-control-systems' },
     { title: 'Stuxnet Case Study', url: 'https://www.wired.com/2014/11/countdown-to-zero-day-stuxnet/' },
-    { title: 'OT vs IT Security', url: 'https://www.sans.org/posters/ot-security-fundamentals/' },
+    { title: 'OT vs IT Security', url: 'https://www.fortinet.com/resources/cyberglossary/it-vs-ot-cybersecurity/' },
     { title: 'ICS Security Standards', url: 'https://www.isa.org/isa99/' }
   ],
   quiz: [
