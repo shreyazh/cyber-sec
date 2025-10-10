@@ -665,7 +665,7 @@ export const learningModules: LearningModuleData[] = [
   requiredLevel: 20,
   videoUrl: 'https://www.youtube.com/embed/xk-d4Bc0xII',
   articleLinks: [
-    { title: 'What is SCADA Security?', url: 'https://www.cisa.gov/topics/industrial-control-systems' },
+    { title: 'What is SCADA Security?', url: 'https://www.fortinet.com/resources/cyberglossary/scada-and-scada-systems' },
     { title: 'Stuxnet Case Study', url: 'https://www.wired.com/2014/11/countdown-to-zero-day-stuxnet/' },
     { title: 'OT vs IT Security', url: 'https://www.fortinet.com/resources/cyberglossary/it-vs-ot-cybersecurity/' },
     { title: 'ICS Security Standards', url: 'https://www.isa.org/isa99/' }
@@ -1233,8 +1233,8 @@ export const learningModules: LearningModuleData[] = [
   requiredLevel: 16,
   videoUrl: 'https://www.youtube.com/embed/J7YLGZTwGPI',
   articleLinks: [
-    { title: 'Satellite Cybersecurity Challenges', url: 'https://www.spacepolicy.org/' },
-    { title: 'Ground Station Hardening', url: 'https://www.nasa.gov/cyber' },
+    { title: 'Satellite Cybersecurity Challenges', url: 'https://pdf.sciencedirectassets.com/277415/1-s2.0-S1874548224X00049/1-s2.0-S1874548224000659/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCXVzLWVhc3QtMSJHMEUCIDwKFFFpB4NCDVC60snCa8eMAIjCbbbydsGlRc6utA1rAiEApk4ZJQQvSyge%2BmwKAYHcvbJRhdU3Uptz4N%2B502DBsQMqvAUI6P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDINP1Fefdi0nLM3lTiqQBb1p9mQgIs%2FDbiZocVOUgeXo4X8bz7R2xABspwhTb55PcsObPz27t5NnhjFT4XhMudhvFAfbTAwuz73gDssl3zcA0yBweECb42RGW%2FpZ%2B8ub4dqoXY5b6gPNZLJ15Am8fYGMrzsTh%2BYsqgDczb8J%2Bd8Baa7cVeIKQSu%2BhlR2aKa7kZjOHqA2sC86w9uakZ0KexUkOMTq6WvFcdyOAqa8um5xbMY4xNgIfqJp113UsIJQGbNmG4C5gsxlRbf3jI4Ua0452bJUq49J22f41KEBbohB21nuly5qHABuZ6zM8OS8O03qE8wX%2BICBkuwQJTZ4zJJ2Sf1Yq0SjeuqPY0QceAeuDysczniKt%2F0HnQPh4ZWB2qNfq6umdnBUXvT4HBwclDm%2FVKTPtdA0zPS2dB5%2F%2FarBgQloArSvMbDlrjNp%2BVWPO6jM%2BwC%2FNT%2B8Uxh%2FDkBJ6MEa%2BjZnka4nuhy0XEosp%2Bn%2FS4vpaafMUiKgKr14X10d%2B0GMkLJCbtI2Cj8UpSwb%2BGXj8Vwrs8Y1H55OF%2BzWKeT85jL6UWuHqrgWAIyt0ifpSKybcF0akHf5tcZWVxJ3%2BmykWZobup1nGKN0R3HhjhnLoU20NMd7lcxE6GvrvPxiaZYs4lB7l%2F%2BUXfg3G1IvvBHZYeY3G3gMGMGPkNELUAE7C1a4l%2F3W9HLEGf%2FBW7rrvdbzXc4N77jY74CCVJaQ9bopeLeyqLlIpkHY6jRSxHkenC5H0TGswXhEpjmKrVsntemIYZ0FCtvZdGI7MnE6kpE%2Bze0VHDNYA6io%2Fn%2FvEfKikbgrckUpcqsPt7cnxUE2SUdzWRSYuuub9K16I6Iy59tTFM8R%2Bh4SBvlfokKFkD5PR2fdQ0wZAPuJvIf2l1VsMLXQoscGOrEBcMO7MgZxx3MniM2qYJtRugplPkQYqH0RbRI4CSakwa8dih8l9onUVJXs4uJiXuHAATcByv2hk5ILj8r0%2FpoL9E4UQ9HnSj5Z6MFN916eCjKSVXaKaGJL9vyDPSOGKomPQlhTkPkx9upPZdOOI%2BRm55wPj34oyYaTj%2FSoY%2B8ViSf05wafp97ri%2BbJ9cbRkLN%2FY2w%2F8h2q2v9JCXpGbCo3G6Sf6EB5BimHc2B%2B6UAwPt3X&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251010T070130Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY64KAB3GC%2F20251010%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1e4738549d051ca49b3f7504baad5d8c15d8976d1e974b1e261e4603cca99591&hash=c8ed52531dbf20e9b7de4bb20c345a5ce33243e7137ff28dd5a4bc05a5d3ab15&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1874548224000659&tid=spdf-05f8fb25-a5dd-47f6-96e1-95ef9919d12b&sid=f38c8799735eb642e0787985af2e32025df4gxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&rh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=130c5d5906575c08515e&rr=98c43f313db92e96&cc=in' },
+    { title: 'Ground Station Hardening', url: 'https://www.trentonsystems.com/en-us/resource-hub/blog/system-hardening-overview' },
     { title: 'Spacecraft Communications Security', url: 'https://www.esa.int/Safety_Security' },
     { title: 'Supply Chain Risks in Aerospace', url: 'https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain' }
   ],
