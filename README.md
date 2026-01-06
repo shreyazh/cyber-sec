@@ -4,7 +4,7 @@ An interactive, retro terminal–style learning app that teaches practical cyber
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 **Cyber-Sec** provides a gamified learning experience for cybersecurity fundamentals and practical topics. Users create a simple handle/pin, complete modules (videos, articles, and quizzes), earn points and badges, and appear on a local leaderboard powered by browser storage.
 
@@ -16,7 +16,7 @@ Key highlights:
 
 ---
 
-## ✨ Features
+## Features
 
 - Terminal-styled UI with loading animation and header/footer
 - Login / session persisted in `localStorage` (`cyberSecUser`)
