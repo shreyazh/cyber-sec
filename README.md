@@ -27,7 +27,7 @@ Key highlights:
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - React + TypeScript
 - Vite (dev server and build)
@@ -36,7 +36,7 @@ Key highlights:
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 Prerequisites:
 - Node.js (recommended v18+)
@@ -65,7 +65,7 @@ Open http://localhost:5173 (or the URL provided by Vite) in your browser.
 
 ---
 
-## 📁 Project Structure (high level)
+## Project Structure (high level)
 
 - `src/`
   - `App.tsx` — Application root and view routing
@@ -86,7 +86,7 @@ Open http://localhost:5173 (or the URL provided by Vite) in your browser.
 
 ---
 
-## ✅ Contributing
+## Contributing
 
 Contributions are welcome! Suggested workflow:
 1. Fork the repo
@@ -99,16 +99,16 @@ If you plan to add a new learning module, include: videos (if available), author
 
 ---
 
-## 📚 Credits & Resources
+## Credits & Resources
 
 This project references standard cybersecurity resources and guides such as OWASP, NIST, and SANS for content accuracy and further reading.
 
 ---
 
-## 📄 License
+## License
 
 This repository does not include a license file yet. If you'd like to open-source it, add a `LICENSE` (e.g., MIT) file to clarify usage terms.
 
 ---
 
-If you'd like, I can also add a short contributing guide, example module template, or a `LICENSE` file (MIT) — tell me which and I'll add it. ✨
+If you'd like, I can also add a short contributing guide, example module template, or a `LICENSE` file (MIT) — tell me which and I'll add it.
